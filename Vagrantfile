@@ -1,7 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-
 nodes = {
   'controller'        => [1, 11]
 }
@@ -34,22 +33,23 @@ Vagrant.configure("2") do |config|
 
         box.vm.provision :shell, :path => "vagrant/shell.sh"
 
-        box.vm.provision "shell", privileged: true, inline: <<-SHELL
-          cd /home/vagrant/openstack/scripts/ubuntu
-          ./apt_init.sh
-          ./apt_upgrade.sh
-          ./apt_pre-download.sh
-          ./apt_install_mysql.sh
-          ./install_rabbitmq.sh
-          ./install_memcached.sh
-          ./setup_keystone.sh
-          ../test/get_auth_token.sh
-          ./setup_placement_controller.sh
-          ./setup_nova_controller.sh
-          ./setup_neutron_controller.sh
-          ./setup_neutron_controller_part_2.sh
-        SHELL
-
+        if hostname == "controller"
+          box.vm.provision "shell", privileged: true, inline: <<-SHELL
+            cd /home/vagrant/openstack/scripts/ubuntu
+            ./apt_init.sh
+            ./apt_upgrade.sh
+            ./apt_pre-download.sh
+            ./apt_install_mysql.sh
+            ./install_rabbitmq.sh
+            ./install_memcached.sh
+            ./setup_keystone.sh
+            ../test/get_auth_token.sh
+            ./setup_placement_controller.sh
+            ./setup_nova_controller.sh
+            # ./setup_neutron_controller.sh
+            # ./setup_neutron_controller_part_2.sh
+          SHELL
+        end
 
         # -rwxr-xr-x 1 root root 3090 Feb 27 23:03 create_xxx_node_pxeboot.sh
         # -rwxr-xr-x 1 root root  843 Feb 27 23:03 install_memcached.sh
@@ -59,17 +59,11 @@ Vagrant.configure("2") do |config|
         # -rwxr-xr-x 1 root root 4307 Feb 27 23:03 setup_glance.sh
         # -rwxr-xr-x 1 root root 6132 Feb 27 23:03 setup_heat_controller.sh
         # -rwxr-xr-x 1 root root 4939 Feb 27 23:03 setup_horizon.sh
-        # -rwxr-xr-x 1 root root 2178 Feb 27 23:03 setup_neutron_compute_part_2.sh
-        # -rwxr-xr-x 1 root root 1988 Feb 27 23:03 setup_neutron_compute.sh
         # -rwxr-xr-x 1 root root 3327 Feb 27 23:03 setup_neutron_controller_part_2.sh
         # -rwxr-xr-x 1 root root 1742 Feb 27 23:03 setup_neutron_controller.sh
-        # -rwxr-xr-x 1 root root 5567 Feb 27 23:03 setup_nova_compute.sh
-        # -rwxr-xr-x 1 root root 1815 Feb 27 23:03 setup_self-service_compute.sh
         # -rwxr-xr-x 1 root root 6316 Feb 27 23:03 setup_self-service_controller.sh
         # drwxr-xr-x 2 root root 4096 Feb 27 23:03 tacker
-
-
-
+        
         box.vm.provider :virtualbox do |vbox|
           vbox.name = "#{hostname}"
           vbox.linked_clone = true if Vagrant::VERSION =~ /^1.8/
