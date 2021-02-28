@@ -27,7 +27,7 @@ TACKER_PASS=tacker_user_secret
 sudo apt update
 
 echo "Installing git, pip, and virtualenv."
-sudo apt install -y git python-pip virtualenv
+sudo apt install -y git python3-pip virtualenv
 
 echo -e "\n>>> Confirming Port Security configuration in ml2_conf.ini\n"
 
@@ -185,7 +185,7 @@ sudo apt install -y libmysqlclient-dev
 # module mysqldb, needed by tacker-db-manage
 pip install mysql-python
 # module memcache needed by tacker
-pip install python-memcached
+pip install python3-memcached
 # networking-sfc (OpenStack Service Function Chaining) needed for
 # tacker's VNF Forwarding Graph (VNFFG)
 echo "Installing python-networking-sfc."

@@ -1,5 +1,7 @@
 #!/bin/bash
 
-mkdir /home/vagrant/openstack
+apt-get update -y
 
-cp -R /vagrant/* /home/vagrant/openstack
+apt-get install -y git
+
+git clone https://github.com/madson7/openstack.git

@@ -38,34 +38,18 @@ Vagrant.configure("2") do |config|
           cd /home/vagrant/openstack/scripts/ubuntu
           ./apt_init.sh
           ./apt_upgrade.sh
-          ./apt_pre-download.sh       # python3-mysqldb python3-pymongo python3-pip python3-memcache
-          ./apt_install_mysql.sh      # python3-mysqldb
+          ./apt_pre-download.sh
+          ./apt_install_mysql.sh
           ./install_rabbitmq.sh
-          ./install_memcached.sh      # python3-memcache
+          ./install_memcached.sh
           ./setup_keystone.sh
-          ./vagrant/scripts/test/get_auth_token.sh          # Teste
+          ../test/get_auth_token.sh
           ./setup_placement_controller.sh
           ./setup_nova_controller.sh
           ./setup_neutron_controller.sh
           ./setup_neutron_controller_part_2.sh
         SHELL
 
-
-
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/apt_init.sh"
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/apt_upgrade.sh"
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/apt_pre-download.sh"      # python3-mysqldb python3-pymongo python3-pip python3-memcache
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/apt_install_mysql.sh"     # python3-mysqldb
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/install_rabbitmq.sh"
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/install_memcached.sh"     # python3-memcache
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/setup_keystone.sh"
-        # box.vm.provision :shell, :path => "vagrant/scripts/test/get_auth_token.sh"          # Teste
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/setup_placement_controller.sh"
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/setup_nova_controller.sh"
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/setup_neutron_controller.sh"
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu/setup_neutron_controller_part_2.sh"
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu"
-        # box.vm.provision :shell, :path => "vagrant/scripts/ubuntu"
 
         # -rwxr-xr-x 1 root root 3090 Feb 27 23:03 create_xxx_node_pxeboot.sh
         # -rwxr-xr-x 1 root root  843 Feb 27 23:03 install_memcached.sh

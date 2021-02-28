@@ -20,17 +20,17 @@ function apt_download {
 # Download packages for all nodes
 
 # MySQL, RabbitMQ
-apt_download mariadb-server python-mysqldb rabbitmq-server
+apt_download mariadb-server python3-mysqldb rabbitmq-server
 
 # NoSQL database (MongoDB)
-apt_download mongodb-server mongodb-clients python-pymongo
+apt_download mongodb-server mongodb-clients python3-pymongo
 
 # Other dependencies
-apt_download python-argparse python-dev python-pip
+apt_download python-argparse python-dev python3-pip
 
 # Keystone
 apt_download keystone python3-openstackclient apache2 \
-    memcached python-memcache
+    memcached python3-memcache
 
 # Glance
 apt_download glance python3-glanceclient
