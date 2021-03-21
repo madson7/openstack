@@ -1,0 +1,433 @@
+Installing RabbitMQ.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  erlang-asn1 erlang-base erlang-corba erlang-crypto erlang-diameter
+  erlang-edoc erlang-eldap erlang-erl-docgen erlang-eunit erlang-ic
+  erlang-inets erlang-mnesia erlang-nox erlang-odbc erlang-os-mon
+  erlang-parsetools erlang-public-key erlang-runtime-tools erlang-snmp
+  erlang-ssh erlang-ssl erlang-syntax-tools erlang-tools erlang-xmerl libltdl7
+  libodbc1 libsctp1
+Suggested packages:
+  erlang erlang-manpages erlang-doc xsltproc fop erlang-ic-java libmyodbc
+  odbc-postgresql tdsodbc unixodbc-bin lksctp-tools
+The following NEW packages will be installed:
+  erlang-asn1 erlang-base erlang-corba erlang-crypto erlang-diameter
+  erlang-edoc erlang-eldap erlang-erl-docgen erlang-eunit erlang-ic
+  erlang-inets erlang-mnesia erlang-nox erlang-odbc erlang-os-mon
+  erlang-parsetools erlang-public-key erlang-runtime-tools erlang-snmp
+  erlang-ssh erlang-ssl erlang-syntax-tools erlang-tools erlang-xmerl libltdl7
+  libodbc1 libsctp1 rabbitmq-server
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/24.5 MB of archives.
+After this operation, 40.9 MB of additional disk space will be used.
+Selecting previously unselected package erlang-base.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 110813 files and directories currently installed.)
+Preparing to unpack .../00-erlang-base_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-base (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-asn1.
+Preparing to unpack .../01-erlang-asn1_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-asn1 (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-mnesia.
+Preparing to unpack .../02-erlang-mnesia_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-mnesia (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-runtime-tools.
+Preparing to unpack .../03-erlang-runtime-tools_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-runtime-tools (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-crypto.
+Preparing to unpack .../04-erlang-crypto_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-crypto (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-public-key.
+Preparing to unpack .../05-erlang-public-key_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-public-key (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-ssl.
+Preparing to unpack .../06-erlang-ssl_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-ssl (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-inets.
+Preparing to unpack .../07-erlang-inets_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-inets (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-corba.
+Preparing to unpack .../08-erlang-corba_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-corba (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-syntax-tools.
+Preparing to unpack .../09-erlang-syntax-tools_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-syntax-tools (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-diameter.
+Preparing to unpack .../10-erlang-diameter_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-diameter (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-xmerl.
+Preparing to unpack .../11-erlang-xmerl_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-xmerl (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-edoc.
+Preparing to unpack .../12-erlang-edoc_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-edoc (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-eldap.
+Preparing to unpack .../13-erlang-eldap_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-eldap (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-erl-docgen.
+Preparing to unpack .../14-erlang-erl-docgen_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-erl-docgen (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-eunit.
+Preparing to unpack .../15-erlang-eunit_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-eunit (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-ic.
+Preparing to unpack .../16-erlang-ic_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-ic (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../17-libltdl7_2.4.6-2_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.6-2) ...
+Selecting previously unselected package libodbc1:amd64.
+Preparing to unpack .../18-libodbc1_2.3.4-1.1ubuntu3_amd64.deb ...
+Unpacking libodbc1:amd64 (2.3.4-1.1ubuntu3) ...
+Selecting previously unselected package erlang-odbc.
+Preparing to unpack .../19-erlang-odbc_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-odbc (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-snmp.
+Preparing to unpack .../20-erlang-snmp_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-snmp (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-os-mon.
+Preparing to unpack .../21-erlang-os-mon_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-os-mon (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-parsetools.
+Preparing to unpack .../22-erlang-parsetools_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-parsetools (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-ssh.
+Preparing to unpack .../23-erlang-ssh_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-ssh (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-tools.
+Preparing to unpack .../24-erlang-tools_1%3a20.2.2+dfsg-1ubuntu2_amd64.deb ...
+Unpacking erlang-tools (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package erlang-nox.
+Preparing to unpack .../25-erlang-nox_1%3a20.2.2+dfsg-1ubuntu2_all.deb ...
+Unpacking erlang-nox (1:20.2.2+dfsg-1ubuntu2) ...
+Selecting previously unselected package libsctp1:amd64.
+Preparing to unpack .../26-libsctp1_1.0.17+dfsg-2_amd64.deb ...
+Unpacking libsctp1:amd64 (1.0.17+dfsg-2) ...
+Selecting previously unselected package rabbitmq-server.
+Preparing to unpack .../27-rabbitmq-server_3.6.10-1ubuntu0.4_all.deb ...
+Unpacking rabbitmq-server (3.6.10-1ubuntu0.4) ...
+Setting up erlang-base (1:20.2.2+dfsg-1ubuntu2) ...
+Searching for services which depend on erlang and should be started...none found.
+Setting up libsctp1:amd64 (1.0.17+dfsg-2) ...
+Setting up erlang-ic (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-xmerl (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-crypto (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-asn1 (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-mnesia (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-eunit (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up libltdl7:amd64 (2.4.6-2) ...
+Setting up erlang-runtime-tools (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-syntax-tools (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-parsetools (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up libodbc1:amd64 (2.3.4-1.1ubuntu3) ...
+Setting up erlang-public-key (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-snmp (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-ssl (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-inets (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-tools (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-odbc (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-diameter (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-ssh (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-os-mon (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-eldap (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-edoc (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-corba (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-erl-docgen (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up erlang-nox (1:20.2.2+dfsg-1ubuntu2) ...
+Setting up rabbitmq-server (3.6.10-1ubuntu0.4) ...
+Adding group `rabbitmq' (GID 116) ...
+Done.
+Adding system user `rabbitmq' (UID 109) ...
+Adding new user `rabbitmq' (UID 109) with group `rabbitmq' ...
+Not creating home directory `/var/lib/rabbitmq'.
+Created symlink /etc/systemd/system/multi-user.target.wants/rabbitmq-server.service -> /lib/systemd/system/rabbitmq-server.service.
+Processing triggers for systemd (237-3ubuntu10.45) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+Waiting for RabbitMQ to start.
+---------------------------------------------------------------
+sudo rabbitmqctl status
+Status of node rabbit@controller
+[{pid,4351},
+ {running_applications,
+     [{rabbit,"RabbitMQ","3.6.10"},
+      {mnesia,"MNESIA  CXC 138 12","4.15.3"},
+      {ranch,"Socket acceptor pool for TCP protocols.","1.3.0"},
+      {ssl,"Erlang/OTP SSL application","8.2.3"},
+      {public_key,"Public key infrastructure","1.5.2"},
+      {asn1,"The Erlang ASN1 compiler version 5.0.4","5.0.4"},
+      {rabbit_common,
+          "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+          "3.6.10"},
+      {xmerl,"XML parser","1.3.16"},
+      {crypto,"CRYPTO","4.2"},
+      {compiler,"ERTS  CXC 138 10","7.1.4"},
+      {os_mon,"CPO  CXC 138 46","2.4.4"},
+      {syntax_tools,"Syntax tools","2.1.4"},
+      {sasl,"SASL  CXC 138 11","3.1.1"},
+      {stdlib,"ERTS  CXC 138 10","3.4.3"},
+      {kernel,"ERTS  CXC 138 10","5.4.1"}]},
+ {os,{unix,linux}},
+ {erlang_version,
+     "Erlang/OTP 20 [erts-9.2] [source] [64-bit] [smp:1:1] [ds:1:1:10] [async-threads:64] [kernel-poll:true]\n"},
+ {memory,
+     [{total,53096416},
+      {connection_readers,0},
+      {connection_writers,0},
+      {connection_channels,0},
+      {connection_other,0},
+      {queue_procs,2744},
+      {queue_slave_procs,0},
+      {plugins,0},
+      {other_proc,20988360},
+      {mnesia,61712},
+      {metrics,184272},
+      {mgmt_db,0},
+      {msg_index,42248},
+      {other_ets,1759720},
+      {binary,36496},
+      {code,21269571},
+      {atom,891849},
+      {other_system,8040908}]},
+ {alarms,[]},
+ {listeners,[{clustering,25672,"::"},{amqp,5672,"::"}]},
+ {vm_memory_high_watermark,0.4},
+ {vm_memory_limit,2077317529},
+ {disk_free_limit,50000000},
+ {disk_free,6069157888},
+ {file_descriptors,
+     [{total_limit,65436},
+      {total_used,2},
+      {sockets_limit,58890},
+      {sockets_used,0}]},
+ {processes,[{limit,1048576},{used,153}]},
+ {run_queue,0},
+ {uptime,6},
+ {kernel,{net_ticktime,60}}]
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+sudo rabbitmqctl report
+Reporting server status on {{2021,3,21},{2,10,6}}
+
+
+Status of node rabbit@controller
+[{pid,4351},
+ {running_applications,
+     [{rabbit,"RabbitMQ","3.6.10"},
+      {mnesia,"MNESIA  CXC 138 12","4.15.3"},
+      {ranch,"Socket acceptor pool for TCP protocols.","1.3.0"},
+      {ssl,"Erlang/OTP SSL application","8.2.3"},
+      {public_key,"Public key infrastructure","1.5.2"},
+      {asn1,"The Erlang ASN1 compiler version 5.0.4","5.0.4"},
+      {rabbit_common,
+          "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+          "3.6.10"},
+      {xmerl,"XML parser","1.3.16"},
+      {crypto,"CRYPTO","4.2"},
+      {compiler,"ERTS  CXC 138 10","7.1.4"},
+      {os_mon,"CPO  CXC 138 46","2.4.4"},
+      {syntax_tools,"Syntax tools","2.1.4"},
+      {sasl,"SASL  CXC 138 11","3.1.1"},
+      {stdlib,"ERTS  CXC 138 10","3.4.3"},
+      {kernel,"ERTS  CXC 138 10","5.4.1"}]},
+ {os,{unix,linux}},
+ {erlang_version,
+     "Erlang/OTP 20 [erts-9.2] [source] [64-bit] [smp:1:1] [ds:1:1:10] [async-threads:64] [kernel-poll:true]\n"},
+ {memory,
+     [{total,53157128},
+      {connection_readers,0},
+      {connection_writers,0},
+      {connection_channels,0},
+      {connection_other,0},
+      {queue_procs,2744},
+      {queue_slave_procs,0},
+      {plugins,0},
+      {other_proc,21048576},
+      {mnesia,61712},
+      {metrics,184272},
+      {mgmt_db,0},
+      {msg_index,42248},
+      {other_ets,1759720},
+      {binary,36496},
+      {code,21269571},
+      {atom,891849},
+      {other_system,8041404}]},
+ {alarms,[]},
+ {listeners,[{clustering,25672,"::"},{amqp,5672,"::"}]},
+ {vm_memory_high_watermark,0.4},
+ {vm_memory_limit,2077317529},
+ {disk_free_limit,50000000},
+ {disk_free,6069157888},
+ {file_descriptors,
+     [{total_limit,65436},
+      {total_used,2},
+      {sockets_limit,58890},
+      {sockets_used,0}]},
+ {processes,[{limit,1048576},{used,153}]},
+ {run_queue,0},
+ {uptime,7},
+ {kernel,{net_ticktime,60}}]
+
+Cluster status of node rabbit@controller
+[{nodes,[{disc,[rabbit@controller]}]},
+ {running_nodes,[rabbit@controller]},
+ {cluster_name,<<"rabbit@controller">>},
+ {partitions,[]},
+ {alarms,[{rabbit@controller,[]}]}]
+
+Application environment of node rabbit@controller
+[{asn1,[]},
+ {compiler,[]},
+ {crypto,[{fips_mode,false}]},
+ {kernel,[{error_logger,tty},
+          {inet_default_connect_options,[{nodelay,true}]},
+          {inet_dist_listen_max,25672},
+          {inet_dist_listen_min,25672}]},
+ {mnesia,[{dir,"/var/lib/rabbitmq/mnesia/rabbit@controller"}]},
+ {os_mon,[{start_cpu_sup,false},
+          {start_disksup,false},
+          {start_memsup,false},
+          {start_os_sup,false}]},
+ {public_key,[]},
+ {rabbit,[{auth_backends,[rabbit_auth_backend_internal]},
+          {auth_mechanisms,['PLAIN','AMQPLAIN']},
+          {background_gc_enabled,false},
+          {background_gc_target_interval,60000},
+          {backing_queue_module,rabbit_priority_queue},
+          {channel_max,0},
+          {channel_operation_timeout,15000},
+          {cluster_keepalive_interval,10000},
+          {cluster_nodes,{[],disc}},
+          {cluster_partition_handling,ignore},
+          {collect_statistics,none},
+          {collect_statistics_interval,5000},
+          {config_entry_decoder,[{cipher,aes_cbc256},
+                                 {hash,sha512},
+                                 {iterations,1000},
+                                 {passphrase,undefined}]},
+          {credit_flow_default_credit,{400,200}},
+          {default_permissions,[<<".*">>,<<".*">>,<<".*">>]},
+          {default_user,<<"guest">>},
+          {default_user_tags,[administrator]},
+          {default_vhost,<<"/">>},
+          {delegate_count,16},
+          {disk_free_limit,50000000},
+          {disk_monitor_failure_retries,10},
+          {disk_monitor_failure_retry_interval,120000},
+          {enabled_plugins_file,"/etc/rabbitmq/enabled_plugins"},
+          {error_logger,{file,"/var/log/rabbitmq/rabbit@controller.log"}},
+          {fhc_read_buffering,false},
+          {fhc_write_buffering,true},
+          {frame_max,131072},
+          {halt_on_upgrade_failure,true},
+          {handshake_timeout,10000},
+          {heartbeat,60},
+          {hipe_compile,false},
+          {hipe_modules,[rabbit_reader,rabbit_channel,gen_server2,
+                         rabbit_exchange,rabbit_command_assembler,
+                         rabbit_framing_amqp_0_9_1,rabbit_basic,rabbit_event,
+                         lists,queue,priority_queue,rabbit_router,
+                         rabbit_trace,rabbit_misc,rabbit_binary_parser,
+                         rabbit_exchange_type_direct,rabbit_guid,rabbit_net,
+                         rabbit_amqqueue_process,rabbit_variable_queue,
+                         rabbit_binary_generator,rabbit_writer,delegate,
+                         gb_sets,lqueue,sets,orddict,rabbit_amqqueue,
+                         rabbit_limiter,gb_trees,rabbit_queue_index,
+                         rabbit_exchange_decorator,gen,dict,ordsets,
+                         file_handle_cache,rabbit_msg_store,array,
+                         rabbit_msg_store_ets_index,rabbit_msg_file,
+                         rabbit_exchange_type_fanout,
+                         rabbit_exchange_type_topic,mnesia,mnesia_lib,rpc,
+                         mnesia_tm,qlc,sofs,proplists,credit_flow,pmon,
+                         ssl_connection,tls_connection,ssl_record,tls_record,
+                         gen_fsm,ssl]},
+          {lazy_queue_explicit_gc_run_operation_threshold,1000},
+          {log_levels,[{connection,info}]},
+          {loopback_users,[<<"guest">>]},
+          {memory_monitor_interval,2500},
+          {mirroring_flow_control,true},
+          {mirroring_sync_batch_size,4096},
+          {mnesia_table_loading_retry_limit,10},
+          {mnesia_table_loading_retry_timeout,30000},
+          {msg_store_credit_disc_bound,{4000,800}},
+          {msg_store_file_size_limit,16777216},
+          {msg_store_index_module,rabbit_msg_store_ets_index},
+          {msg_store_io_batch_size,4096},
+          {num_ssl_acceptors,1},
+          {num_tcp_acceptors,10},
+          {password_hashing_module,rabbit_password_hashing_sha256},
+          {plugins_dir,"/usr/lib/rabbitmq/plugins:/usr/lib/rabbitmq/lib/rabbitmq_server-3.6.10/plugins"},
+          {plugins_expand_dir,"/var/lib/rabbitmq/mnesia/rabbit@controller-plugins-expand"},
+          {queue_explicit_gc_run_operation_threshold,1000},
+          {queue_index_embed_msgs_below,4096},
+          {queue_index_max_journal_entries,32768},
+          {reverse_dns_lookups,false},
+          {sasl_error_logger,{file,"/var/log/rabbitmq/rabbit@controller-sasl.log"}},
+          {server_properties,[]},
+          {ssl_allow_poodle_attack,false},
+          {ssl_apps,[asn1,crypto,public_key,ssl]},
+          {ssl_cert_login_from,distinguished_name},
+          {ssl_handshake_timeout,5000},
+          {ssl_listeners,[]},
+          {ssl_options,[]},
+          {tcp_listen_options,[{backlog,128},
+                               {nodelay,true},
+                               {linger,{true,0}},
+                               {exit_on_close,false}]},
+          {tcp_listeners,[5672]},
+          {trace_vhosts,[]},
+          {vm_memory_high_watermark,0.4},
+          {vm_memory_high_watermark_paging_ratio,0.5}]},
+ {rabbit_common,[]},
+ {ranch,[]},
+ {sasl,[{errlog_type,error},{sasl_error_logger,false}]},
+ {ssl,[]},
+ {stdlib,[]},
+ {syntax_tools,[]},
+ {xmerl,[]}]
+
+Connections:
+
+Channels:
+
+Queues on /:
+
+Exchanges on /:
+name	type	durable	auto_delete	internal	arguments	policy
+	direct	true	false	false	[]	
+amq.direct	direct	true	false	false	[]	
+amq.fanout	fanout	true	false	false	[]	
+amq.headers	headers	true	false	false	[]	
+amq.match	headers	true	false	false	[]	
+amq.rabbitmq.log	topic	true	false	true	[]	
+amq.rabbitmq.trace	topic	true	false	true	[]	
+amq.topic	topic	true	false	false	[]	
+
+Bindings on /:
+
+Consumers on /:
+
+Permissions on /:
+user	configure	write	read
+guest	.*	.*	.*
+
+Policies on /:
+
+Parameters on /:
+
+---------------------------------------------------------------
+Adding openstack user to messaging service.
+Creating user "openstack"
+Permitting configuration, write and read access for the openstack user.
+Setting permissions for user "openstack" in vhost "/"

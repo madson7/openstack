@@ -1,0 +1,375 @@
+Waiting for keystone to come up.
+Setting up database for heat.
+Waiting for database server to come up.
+mysql cmd: CREATE DATABASE heat.
+mysql cmd: GRANT ALL ON heat.* TO 'heat'@'%' IDENTIFIED BY 'heat_db_secret';.
+mysql cmd: GRANT ALL ON heat.* TO 'heat'@'localhost' IDENTIFIED BY 'heat_db_secret';.
+Sourcing the admin credentials.
+Waiting for keystone to come up.
+Creating heat user and giving it admin role under service tenant.
++---------------------+----------------------------------+
+| Field               | Value                            |
++---------------------+----------------------------------+
+| domain_id           | default                          |
+| enabled             | True                             |
+| id                  | 5f6abc4ead41401bbac25b739f9211c4 |
+| name                | heat                             |
+| options             | {}                               |
+| password_expires_at | None                             |
++---------------------+----------------------------------+
+Creating the heat and heat-cfn service entities.
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Orchestration                    |
+| enabled     | True                             |
+| id          | de80cc4281ea4782977c0ae6af386f2b |
+| name        | heat                             |
+| type        | orchestration                    |
++-------------+----------------------------------+
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Orchestration                    |
+| enabled     | True                             |
+| id          | 330e52dfc8fe40238ca8dff394053d71 |
+| name        | heat-cfn                         |
+| type        | cloudformation                   |
++-------------+----------------------------------+
+Creating heat and heat-cfn endpoints.
++--------------+-----------------------------------------+
+| Field        | Value                                   |
++--------------+-----------------------------------------+
+| enabled      | True                                    |
+| id           | 2503137090de4d3d887e59d63e38b906        |
+| interface    | public                                  |
+| region       | RegionOne                               |
+| region_id    | RegionOne                               |
+| service_id   | de80cc4281ea4782977c0ae6af386f2b        |
+| service_name | heat                                    |
+| service_type | orchestration                           |
+| url          | http://controller:8004/v1/%(tenant_id)s |
++--------------+-----------------------------------------+
++--------------+-----------------------------------------+
+| Field        | Value                                   |
++--------------+-----------------------------------------+
+| enabled      | True                                    |
+| id           | deb99903cf61467d9c6ba505131732b3        |
+| interface    | internal                                |
+| region       | RegionOne                               |
+| region_id    | RegionOne                               |
+| service_id   | de80cc4281ea4782977c0ae6af386f2b        |
+| service_name | heat                                    |
+| service_type | orchestration                           |
+| url          | http://controller:8004/v1/%(tenant_id)s |
++--------------+-----------------------------------------+
++--------------+-----------------------------------------+
+| Field        | Value                                   |
++--------------+-----------------------------------------+
+| enabled      | True                                    |
+| id           | 770ec56607074c7cb248e9dacd68f625        |
+| interface    | admin                                   |
+| region       | RegionOne                               |
+| region_id    | RegionOne                               |
+| service_id   | de80cc4281ea4782977c0ae6af386f2b        |
+| service_name | heat                                    |
+| service_type | orchestration                           |
+| url          | http://controller:8004/v1/%(tenant_id)s |
++--------------+-----------------------------------------+
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| enabled      | True                             |
+| id           | 8f0c468d61694042ac236b2a78e561c0 |
+| interface    | public                           |
+| region       | RegionOne                        |
+| region_id    | RegionOne                        |
+| service_id   | 330e52dfc8fe40238ca8dff394053d71 |
+| service_name | heat-cfn                         |
+| service_type | cloudformation                   |
+| url          | http://controller:8000/v1        |
++--------------+----------------------------------+
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| enabled      | True                             |
+| id           | 2bfc51dc760142a49c7f6a06c6eeebcf |
+| interface    | internal                         |
+| region       | RegionOne                        |
+| region_id    | RegionOne                        |
+| service_id   | 330e52dfc8fe40238ca8dff394053d71 |
+| service_name | heat-cfn                         |
+| service_type | cloudformation                   |
+| url          | http://controller:8000/v1        |
++--------------+----------------------------------+
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| enabled      | True                             |
+| id           | 5802c72d0710490da38709ddf2f87204 |
+| interface    | admin                            |
+| region       | RegionOne                        |
+| region_id    | RegionOne                        |
+| service_id   | 330e52dfc8fe40238ca8dff394053d71 |
+| service_name | heat-cfn                         |
+| service_type | cloudformation                   |
+| url          | http://controller:8000/v1        |
++--------------+----------------------------------+
+Creating heat domain.
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Stack projects and users         |
+| enabled     | True                             |
+| id          | 98548e13a86a45e18e8df04d25a04b41 |
+| name        | heat                             |
+| options     | {}                               |
+| tags        | []                               |
++-------------+----------------------------------+
+Creating heat_domain_admin user.
++---------------------+----------------------------------+
+| Field               | Value                            |
++---------------------+----------------------------------+
+| domain_id           | 98548e13a86a45e18e8df04d25a04b41 |
+| enabled             | True                             |
+| id                  | 79e00158980e4c11a0ce0ef81ff18422 |
+| name                | heat_domain_admin                |
+| options             | {}                               |
+| password_expires_at | None                             |
++---------------------+----------------------------------+
+Creating the heat_stack_owner role.
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | None                             |
+| domain_id   | None                             |
+| id          | 93fc417fe9ee47a18c2adfa421dbac65 |
+| name        | heat_stack_owner                 |
+| options     | {}                               |
++-------------+----------------------------------+
+Creating the heat_stack_user role.
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | None                             |
+| domain_id   | None                             |
+| id          | 61ef546deb504c4991ec75f9f9bf165e |
+| name        | heat_stack_user                  |
+| options     | {}                               |
++-------------+----------------------------------+
+Installing heat.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  heat-common python3-aodhclient python3-blazarclient python3-croniter
+  python3-gnocchiclient python3-heat python3-magnumclient python3-manilaclient
+  python3-mistralclient python3-monascaclient python3-octaviaclient
+  python3-saharaclient python3-senlinclient python3-troveclient python3-yaql
+  python3-zaqarclient
+Suggested packages:
+  python-aodhclient-doc python-gnocchiclient-doc python3-zunclient
+  python-magnumclient-doc python-octaviaclient-doc python-senlinclient-doc
+The following NEW packages will be installed:
+  heat-api heat-api-cfn heat-common heat-engine python3-aodhclient
+  python3-blazarclient python3-croniter python3-gnocchiclient python3-heat
+  python3-magnumclient python3-manilaclient python3-mistralclient
+  python3-monascaclient python3-octaviaclient python3-saharaclient
+  python3-senlinclient python3-troveclient python3-yaql python3-zaqarclient
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+0 upgraded, 19 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/2,114 kB of archives.
+After this operation, 19.2 MB of additional disk space will be used.
+Selecting previously unselected package heat-common.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 165050 files and directories currently installed.)
+Preparing to unpack .../00-heat-common_1%3a13.1.0-0ubuntu1~cloud0_all.deb ...
+Unpacking heat-common (1:13.1.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package python3-aodhclient.
+Preparing to unpack .../01-python3-aodhclient_1.0.0-0ubuntu1_all.deb ...
+Unpacking python3-aodhclient (1.0.0-0ubuntu1) ...
+Selecting previously unselected package python3-blazarclient.
+Preparing to unpack .../02-python3-blazarclient_2.2.1-0ubuntu1~cloud0_all.deb ...
+Unpacking python3-blazarclient (2.2.1-0ubuntu1~cloud0) ...
+Selecting previously unselected package python3-croniter.
+Preparing to unpack .../03-python3-croniter_0.3.29-2ubuntu1~cloud0_all.deb ...
+Unpacking python3-croniter (0.3.29-2ubuntu1~cloud0) ...
+Selecting previously unselected package python3-gnocchiclient.
+Preparing to unpack .../04-python3-gnocchiclient_7.0.1-0ubuntu1_all.deb ...
+Unpacking python3-gnocchiclient (7.0.1-0ubuntu1) ...
+Selecting previously unselected package python3-magnumclient.
+Preparing to unpack .../05-python3-magnumclient_2.8.0-0ubuntu1_all.deb ...
+Unpacking python3-magnumclient (2.8.0-0ubuntu1) ...
+Selecting previously unselected package python3-manilaclient.
+Preparing to unpack .../06-python3-manilaclient_1.29.0-0ubuntu1~cloud0_all.deb ...
+Unpacking python3-manilaclient (1.29.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package python3-mistralclient.
+Preparing to unpack .../07-python3-mistralclient_1%3a3.3.0-0ubuntu1_all.deb ...
+Unpacking python3-mistralclient (1:3.3.0-0ubuntu1) ...
+Selecting previously unselected package python3-monascaclient.
+Preparing to unpack .../08-python3-monascaclient_1.16.0-0ubuntu1~cloud0_all.deb ...
+Unpacking python3-monascaclient (1.16.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package python3-octaviaclient.
+Preparing to unpack .../09-python3-octaviaclient_1.10.0-0ubuntu1~cloud0_all.deb ...
+Unpacking python3-octaviaclient (1.10.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package python3-saharaclient.
+Preparing to unpack .../10-python3-saharaclient_2.3.0-0ubuntu1~cloud0_all.deb ...
+Unpacking python3-saharaclient (2.3.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package python3-senlinclient.
+Preparing to unpack .../11-python3-senlinclient_1.11.0-0ubuntu1~cloud0_all.deb ...
+Unpacking python3-senlinclient (1.11.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package python3-troveclient.
+Preparing to unpack .../12-python3-troveclient_1%3a2.14.0-0ubuntu1_all.deb ...
+Unpacking python3-troveclient (1:2.14.0-0ubuntu1) ...
+Selecting previously unselected package python3-yaql.
+Preparing to unpack .../13-python3-yaql_1.1.3-0ubuntu1_all.deb ...
+Unpacking python3-yaql (1.1.3-0ubuntu1) ...
+Selecting previously unselected package python3-zaqarclient.
+Preparing to unpack .../14-python3-zaqarclient_1.9.0-0ubuntu1_all.deb ...
+Unpacking python3-zaqarclient (1.9.0-0ubuntu1) ...
+Selecting previously unselected package python3-heat.
+Preparing to unpack .../15-python3-heat_1%3a13.1.0-0ubuntu1~cloud0_all.deb ...
+Unpacking python3-heat (1:13.1.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package heat-api.
+Preparing to unpack .../16-heat-api_1%3a13.1.0-0ubuntu1~cloud0_all.deb ...
+Unpacking heat-api (1:13.1.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package heat-api-cfn.
+Preparing to unpack .../17-heat-api-cfn_1%3a13.1.0-0ubuntu1~cloud0_all.deb ...
+Unpacking heat-api-cfn (1:13.1.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package heat-engine.
+Preparing to unpack .../18-heat-engine_1%3a13.1.0-0ubuntu1~cloud0_all.deb ...
+Unpacking heat-engine (1:13.1.0-0ubuntu1~cloud0) ...
+Setting up python3-manilaclient (1.29.0-0ubuntu1~cloud0) ...
+Setting up python3-octaviaclient (1.10.0-0ubuntu1~cloud0) ...
+Setting up python3-magnumclient (2.8.0-0ubuntu1) ...
+update-alternatives: using /usr/bin/python3-magnum to provide /usr/bin/magnum (magnum) in auto mode
+Setting up python3-croniter (0.3.29-2ubuntu1~cloud0) ...
+Setting up python3-monascaclient (1.16.0-0ubuntu1~cloud0) ...
+Setting up python3-gnocchiclient (7.0.1-0ubuntu1) ...
+update-alternatives: using /usr/bin/python3-gnocchi to provide /usr/bin/gnocchi (gnocchi) in auto mode
+Setting up python3-saharaclient (2.3.0-0ubuntu1~cloud0) ...
+Setting up python3-mistralclient (1:3.3.0-0ubuntu1) ...
+update-alternatives: using /usr/bin/python3-mistral to provide /usr/bin/mistral (mistral) in auto mode
+Setting up python3-zaqarclient (1.9.0-0ubuntu1) ...
+Setting up python3-senlinclient (1.11.0-0ubuntu1~cloud0) ...
+Setting up python3-blazarclient (2.2.1-0ubuntu1~cloud0) ...
+Setting up python3-aodhclient (1.0.0-0ubuntu1) ...
+update-alternatives: using /usr/bin/python3-aodh to provide /usr/bin/aodh (aodh) in auto mode
+Setting up python3-yaql (1.1.3-0ubuntu1) ...
+update-alternatives: using /usr/bin/python3-yaql to provide /usr/bin/yaql (yaql) in auto mode
+Setting up python3-troveclient (1:2.14.0-0ubuntu1) ...
+update-alternatives: using /usr/bin/python3-trove to provide /usr/bin/trove (trove) in auto mode
+Setting up heat-common (1:13.1.0-0ubuntu1~cloud0) ...
+Adding system user `heat' (UID 119) ...
+Adding new user `heat' (UID 119) with group `heat' ...
+Not creating home directory `/var/lib/heat'.
+Setting up python3-heat (1:13.1.0-0ubuntu1~cloud0) ...
+Setting up heat-engine (1:13.1.0-0ubuntu1~cloud0) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/heat-engine.service -> /lib/systemd/system/heat-engine.service.
+Setting up heat-api-cfn (1:13.1.0-0ubuntu1~cloud0) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/heat-api-cfn.service -> /lib/systemd/system/heat-api-cfn.service.
+Setting up heat-api (1:13.1.0-0ubuntu1~cloud0) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/heat-api.service -> /lib/systemd/system/heat-api.service.
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for systemd (237-3ubuntu10.45) ...
+Database connection: mysql+pymysql://heat:heat_db_secret@controller/heat.
+Configuring heat.conf.
+'/etc/heat/heat.conf' -> '/tmp/140_etc_heat_heat.conf.iniset'
+iniset /tmp/140_etc_heat_heat.conf.iniset database connection mysql+pymysql://heat:heat_db_secret@controller/heat
+Configuring keystone.
+Configuring RabbitMQ message queue access.
+'/etc/heat/heat.conf' -> '/tmp/141_etc_heat_heat.conf.iniset'
+iniset /tmp/141_etc_heat_heat.conf.iniset DEFAULT transport_url rabbit://openstack:rabbitPass@controller
+'/etc/heat/heat.conf' -> '/tmp/142_etc_heat_heat.conf.iniset'
+iniset /tmp/142_etc_heat_heat.conf.iniset keystone_authtoken www_authenticate_uri http://controller:5000
+'/etc/heat/heat.conf' -> '/tmp/143_etc_heat_heat.conf.iniset'
+iniset /tmp/143_etc_heat_heat.conf.iniset keystone_authtoken auth_url http://controller:5000
+'/etc/heat/heat.conf' -> '/tmp/144_etc_heat_heat.conf.iniset'
+iniset /tmp/144_etc_heat_heat.conf.iniset keystone_authtoken memcached_servers controller:11211
+'/etc/heat/heat.conf' -> '/tmp/145_etc_heat_heat.conf.iniset'
+iniset /tmp/145_etc_heat_heat.conf.iniset keystone_authtoken auth_type password
+'/etc/heat/heat.conf' -> '/tmp/146_etc_heat_heat.conf.iniset'
+iniset /tmp/146_etc_heat_heat.conf.iniset keystone_authtoken project_domain_name default
+'/etc/heat/heat.conf' -> '/tmp/147_etc_heat_heat.conf.iniset'
+iniset /tmp/147_etc_heat_heat.conf.iniset keystone_authtoken user_domain_name default
+'/etc/heat/heat.conf' -> '/tmp/148_etc_heat_heat.conf.iniset'
+iniset /tmp/148_etc_heat_heat.conf.iniset keystone_authtoken project_name service
+'/etc/heat/heat.conf' -> '/tmp/149_etc_heat_heat.conf.iniset'
+iniset /tmp/149_etc_heat_heat.conf.iniset keystone_authtoken username heat
+'/etc/heat/heat.conf' -> '/tmp/150_etc_heat_heat.conf.iniset'
+iniset /tmp/150_etc_heat_heat.conf.iniset keystone_authtoken password heat_user_secret
+'/etc/heat/heat.conf' -> '/tmp/151_etc_heat_heat.conf.iniset'
+iniset /tmp/151_etc_heat_heat.conf.iniset trustee auth_type password
+'/etc/heat/heat.conf' -> '/tmp/152_etc_heat_heat.conf.iniset'
+iniset /tmp/152_etc_heat_heat.conf.iniset trustee auth_url http://controller:5000
+'/etc/heat/heat.conf' -> '/tmp/153_etc_heat_heat.conf.iniset'
+iniset /tmp/153_etc_heat_heat.conf.iniset trustee username heat
+'/etc/heat/heat.conf' -> '/tmp/154_etc_heat_heat.conf.iniset'
+iniset /tmp/154_etc_heat_heat.conf.iniset trustee password heat_user_secret
+'/etc/heat/heat.conf' -> '/tmp/155_etc_heat_heat.conf.iniset'
+iniset /tmp/155_etc_heat_heat.conf.iniset trustee user_domain_name default
+'/etc/heat/heat.conf' -> '/tmp/156_etc_heat_heat.conf.iniset'
+iniset /tmp/156_etc_heat_heat.conf.iniset clients_keystone auth_uri http://controller:5000
+'/etc/heat/heat.conf' -> '/tmp/157_etc_heat_heat.conf.iniset'
+iniset /tmp/157_etc_heat_heat.conf.iniset DEFAULT heat_metadata_server_url http://controller:8000
+'/etc/heat/heat.conf' -> '/tmp/158_etc_heat_heat.conf.iniset'
+iniset /tmp/158_etc_heat_heat.conf.iniset DEFAULT heat_waitcondition_server_url http://controller:8000/v1/waitcondition
+'/etc/heat/heat.conf' -> '/tmp/159_etc_heat_heat.conf.iniset'
+iniset /tmp/159_etc_heat_heat.conf.iniset DEFAULT stack_domain_admin heat_domain_admin
+'/etc/heat/heat.conf' -> '/tmp/160_etc_heat_heat.conf.iniset'
+iniset /tmp/160_etc_heat_heat.conf.iniset DEFAULT stack_domain_admin_password heat_dom_pw
+'/etc/heat/heat.conf' -> '/tmp/161_etc_heat_heat.conf.iniset'
+iniset /tmp/161_etc_heat_heat.conf.iniset DEFAULT stack_user_domain_name heat
+Creating the database tables for heat.
+2021-03-21 02:26:13.160 5109 INFO migrate.versioning.api [-] 70 -> 71... [00m
+2021-03-21 02:26:13.535 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:13.535 5109 INFO migrate.versioning.api [-] 71 -> 72... [00m
+2021-03-21 02:26:13.589 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:13.590 5109 INFO migrate.versioning.api [-] 72 -> 73... [00m
+2021-03-21 02:26:13.669 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:13.669 5109 INFO migrate.versioning.api [-] 73 -> 74... [00m
+2021-03-21 02:26:13.678 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:13.678 5109 INFO migrate.versioning.api [-] 74 -> 75... [00m
+2021-03-21 02:26:13.690 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:13.691 5109 INFO migrate.versioning.api [-] 75 -> 76... [00m
+2021-03-21 02:26:13.702 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:13.704 5109 INFO migrate.versioning.api [-] 76 -> 77... [00m
+2021-03-21 02:26:13.719 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:13.719 5109 INFO migrate.versioning.api [-] 77 -> 78... [00m
+2021-03-21 02:26:13.725 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:13.726 5109 INFO migrate.versioning.api [-] 78 -> 79... [00m
+2021-03-21 02:26:13.917 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:13.917 5109 INFO migrate.versioning.api [-] 79 -> 80... [00m
+2021-03-21 02:26:13.999 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:13.999 5109 INFO migrate.versioning.api [-] 80 -> 81... [00m
+2021-03-21 02:26:14.004 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:14.005 5109 INFO migrate.versioning.api [-] 81 -> 82... [00m
+2021-03-21 02:26:14.010 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:14.010 5109 INFO migrate.versioning.api [-] 82 -> 83... [00m
+2021-03-21 02:26:14.015 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:14.015 5109 INFO migrate.versioning.api [-] 83 -> 84... [00m
+2021-03-21 02:26:14.020 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:14.021 5109 INFO migrate.versioning.api [-] 84 -> 85... [00m
+2021-03-21 02:26:14.026 5109 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:26:14.026 5109 INFO migrate.versioning.api [-] 85 -> 86... [00m
+2021-03-21 02:26:14.131 5109 INFO migrate.versioning.api [-] done[00m
+Restarting heat services.
+Waiting for openstack stack list.
+Restarting heat servies took 11 seconds.
+Listing service components.
++------------+-------------+--------------------------------------+------------+--------+----------------------------+--------+
+| Hostname   | Binary      | Engine ID                            | Host       | Topic  | Updated At                 | Status |
++------------+-------------+--------------------------------------+------------+--------+----------------------------+--------+
+| controller | heat-engine | 2f75dd76-cdfd-415d-b68e-e23a8fe95b97 | controller | engine | 2021-03-21T02:26:25.000000 | up     |
+| controller | heat-engine | d326300a-b143-4e56-9b69-4c01e9cb2806 | controller | engine | 2021-03-21T02:26:25.000000 | up     |
+| controller | heat-engine | 0eabd0fb-5bce-4ea2-acd5-e620c6766cb2 | controller | engine | 2021-03-21T02:26:25.000000 | up     |
+| controller | heat-engine | 55b90e79-30c0-4c24-b3a5-1f674572171e | controller | engine | 2021-03-21T02:26:25.000000 | up     |
++------------+-------------+--------------------------------------+------------+--------+----------------------------+--------+

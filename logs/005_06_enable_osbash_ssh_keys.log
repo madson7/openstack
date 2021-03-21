@@ -1,0 +1,7 @@
+Installing osbash insecure private key (connections to other VMs).
+Installing osbash insecure key osbash_key.
+'/osbash/lib/osbash-ssh-keys/osbash_key' -> '/home/osbash/.ssh/osbash_key'
+Installing osbash insecure key osbash_key.pub.
+'/osbash/lib/osbash-ssh-keys/osbash_key.pub' -> '/home/osbash/.ssh/osbash_key.pub'
+Authorizing osbash public key (connections from host and other VMs).
+Already authorized.

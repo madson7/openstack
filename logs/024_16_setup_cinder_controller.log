@@ -1,0 +1,224 @@
+Setting up database for cinder.
+Waiting for database server to come up.
+mysql cmd: CREATE DATABASE cinder.
+mysql cmd: GRANT ALL ON cinder.* TO 'cinder'@'%' IDENTIFIED BY 'cinder_db_secret';.
+mysql cmd: GRANT ALL ON cinder.* TO 'cinder'@'localhost' IDENTIFIED BY 'cinder_db_secret';.
+Waiting for keystone to come up.
+Creating cinder user.
++---------------------+----------------------------------+
+| Field               | Value                            |
++---------------------+----------------------------------+
+| domain_id           | default                          |
+| enabled             | True                             |
+| id                  | a4e18952ac8f40ac96f67d8870bdaf40 |
+| name                | cinder                           |
+| options             | {}                               |
+| password_expires_at | None                             |
++---------------------+----------------------------------+
+Linking cinder user, service tenant and admin role.
+Registering cinder with keystone so that other services can locate it.
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | OpenStack Block Storage          |
+| enabled     | True                             |
+| id          | a730b13802334fbc89fcaa88c10321d2 |
+| name        | cinderv2                         |
+| type        | volumev2                         |
++-------------+----------------------------------+
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | OpenStack Block Storage          |
+| enabled     | True                             |
+| id          | a4dd60b9fe21463eb16453ce0358a15f |
+| name        | cinderv3                         |
+| type        | volumev3                         |
++-------------+----------------------------------+
++--------------+------------------------------------------+
+| Field        | Value                                    |
++--------------+------------------------------------------+
+| enabled      | True                                     |
+| id           | 9b7f3eb1d3484c478b920527ea098679         |
+| interface    | public                                   |
+| region       | RegionOne                                |
+| region_id    | RegionOne                                |
+| service_id   | a730b13802334fbc89fcaa88c10321d2         |
+| service_name | cinderv2                                 |
+| service_type | volumev2                                 |
+| url          | http://controller:8776/v2/%(project_id)s |
++--------------+------------------------------------------+
++--------------+------------------------------------------+
+| Field        | Value                                    |
++--------------+------------------------------------------+
+| enabled      | True                                     |
+| id           | 49715f02230a470ba60e67bff074fe28         |
+| interface    | internal                                 |
+| region       | RegionOne                                |
+| region_id    | RegionOne                                |
+| service_id   | a730b13802334fbc89fcaa88c10321d2         |
+| service_name | cinderv2                                 |
+| service_type | volumev2                                 |
+| url          | http://controller:8776/v2/%(project_id)s |
++--------------+------------------------------------------+
++--------------+------------------------------------------+
+| Field        | Value                                    |
++--------------+------------------------------------------+
+| enabled      | True                                     |
+| id           | 51bf734de9b0401d9887acefb0be31be         |
+| interface    | admin                                    |
+| region       | RegionOne                                |
+| region_id    | RegionOne                                |
+| service_id   | a730b13802334fbc89fcaa88c10321d2         |
+| service_name | cinderv2                                 |
+| service_type | volumev2                                 |
+| url          | http://controller:8776/v2/%(project_id)s |
++--------------+------------------------------------------+
++--------------+------------------------------------------+
+| Field        | Value                                    |
++--------------+------------------------------------------+
+| enabled      | True                                     |
+| id           | 3fbc8dda1836460fa8d1cfe7342bc618         |
+| interface    | public                                   |
+| region       | RegionOne                                |
+| region_id    | RegionOne                                |
+| service_id   | a4dd60b9fe21463eb16453ce0358a15f         |
+| service_name | cinderv3                                 |
+| service_type | volumev3                                 |
+| url          | http://controller:8776/v3/%(project_id)s |
++--------------+------------------------------------------+
++--------------+------------------------------------------+
+| Field        | Value                                    |
++--------------+------------------------------------------+
+| enabled      | True                                     |
+| id           | f7178201208e41728b0810e7e8c8f7ab         |
+| interface    | internal                                 |
+| region       | RegionOne                                |
+| region_id    | RegionOne                                |
+| service_id   | a4dd60b9fe21463eb16453ce0358a15f         |
+| service_name | cinderv3                                 |
+| service_type | volumev3                                 |
+| url          | http://controller:8776/v3/%(project_id)s |
++--------------+------------------------------------------+
++--------------+------------------------------------------+
+| Field        | Value                                    |
++--------------+------------------------------------------+
+| enabled      | True                                     |
+| id           | 2cd58d2d52d5469a9546d24629aa29a8         |
+| interface    | admin                                    |
+| region       | RegionOne                                |
+| region_id    | RegionOne                                |
+| service_id   | a4dd60b9fe21463eb16453ce0358a15f         |
+| service_name | cinderv3                                 |
+| service_type | volumev3                                 |
+| url          | http://controller:8776/v3/%(project_id)s |
++--------------+------------------------------------------+
+Installing cinder.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+qemu-utils is already the newest version (1:4.0+dfsg-0ubuntu9.8~cloud0).
+qemu-utils set to manually installed.
+The following additional packages will be installed:
+  cinder-common python3-cinder
+Suggested packages:
+  python3-googleapi python3-hp3parclient python3-oauth2client python3-rados
+  python3-rbd python3-rtslib-fb
+The following NEW packages will be installed:
+  cinder-api cinder-common cinder-scheduler python3-cinder
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+0 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/2,550 kB of archives.
+After this operation, 24.9 MB of additional disk space will be used.
+Selecting previously unselected package cinder-common.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 163609 files and directories currently installed.)
+Preparing to unpack .../cinder-common_2%3a15.4.1-0ubuntu1~cloud1_all.deb ...
+Unpacking cinder-common (2:15.4.1-0ubuntu1~cloud1) ...
+Selecting previously unselected package python3-cinder.
+Preparing to unpack .../python3-cinder_2%3a15.4.1-0ubuntu1~cloud1_all.deb ...
+Unpacking python3-cinder (2:15.4.1-0ubuntu1~cloud1) ...
+Selecting previously unselected package cinder-api.
+Preparing to unpack .../cinder-api_2%3a15.4.1-0ubuntu1~cloud1_all.deb ...
+Unpacking cinder-api (2:15.4.1-0ubuntu1~cloud1) ...
+Selecting previously unselected package cinder-scheduler.
+Preparing to unpack .../cinder-scheduler_2%3a15.4.1-0ubuntu1~cloud1_all.deb ...
+Unpacking cinder-scheduler (2:15.4.1-0ubuntu1~cloud1) ...
+Setting up cinder-common (2:15.4.1-0ubuntu1~cloud1) ...
+Setting up python3-cinder (2:15.4.1-0ubuntu1~cloud1) ...
+Setting up cinder-scheduler (2:15.4.1-0ubuntu1~cloud1) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/cinder-scheduler.service -> /lib/systemd/system/cinder-scheduler.service.
+Setting up cinder-api (2:15.4.1-0ubuntu1~cloud1) ...
+apache2_invoke: Enable configuration cinder-wsgi
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for systemd (237-3ubuntu10.45) ...
+Configuring cinder-api.conf.
+Setting database connection: mysql+pymysql://cinder:cinder_db_secret@controller/cinder.
+'/etc/cinder/cinder.conf' -> '/tmp/125_etc_cinder_cinder.conf.iniset'
+iniset /tmp/125_etc_cinder_cinder.conf.iniset database connection mysql+pymysql://cinder:cinder_db_secret@controller/cinder
+Configuring RabbitMQ message queue access.
+'/etc/cinder/cinder.conf' -> '/tmp/126_etc_cinder_cinder.conf.iniset'
+iniset /tmp/126_etc_cinder_cinder.conf.iniset DEFAULT transport_url rabbit://openstack:rabbitPass@controller
+'/etc/cinder/cinder.conf' -> '/tmp/127_etc_cinder_cinder.conf.iniset'
+iniset /tmp/127_etc_cinder_cinder.conf.iniset DEFAULT auth_strategy keystone
+'/etc/cinder/cinder.conf' -> '/tmp/128_etc_cinder_cinder.conf.iniset'
+iniset /tmp/128_etc_cinder_cinder.conf.iniset keystone_authtoken www_authenticate_uri http://controller:5000
+'/etc/cinder/cinder.conf' -> '/tmp/129_etc_cinder_cinder.conf.iniset'
+iniset /tmp/129_etc_cinder_cinder.conf.iniset keystone_authtoken auth_url http://controller:5000
+'/etc/cinder/cinder.conf' -> '/tmp/130_etc_cinder_cinder.conf.iniset'
+iniset /tmp/130_etc_cinder_cinder.conf.iniset keystone_authtoken memcached_servers controller:11211
+'/etc/cinder/cinder.conf' -> '/tmp/131_etc_cinder_cinder.conf.iniset'
+iniset /tmp/131_etc_cinder_cinder.conf.iniset keystone_authtoken auth_type password
+'/etc/cinder/cinder.conf' -> '/tmp/132_etc_cinder_cinder.conf.iniset'
+iniset /tmp/132_etc_cinder_cinder.conf.iniset keystone_authtoken project_domain_id default
+'/etc/cinder/cinder.conf' -> '/tmp/133_etc_cinder_cinder.conf.iniset'
+iniset /tmp/133_etc_cinder_cinder.conf.iniset keystone_authtoken user_domain_id default
+'/etc/cinder/cinder.conf' -> '/tmp/134_etc_cinder_cinder.conf.iniset'
+iniset /tmp/134_etc_cinder_cinder.conf.iniset keystone_authtoken project_name service
+'/etc/cinder/cinder.conf' -> '/tmp/135_etc_cinder_cinder.conf.iniset'
+iniset /tmp/135_etc_cinder_cinder.conf.iniset keystone_authtoken username cinder
+'/etc/cinder/cinder.conf' -> '/tmp/136_etc_cinder_cinder.conf.iniset'
+iniset /tmp/136_etc_cinder_cinder.conf.iniset keystone_authtoken password cinder_user_secret
+'/etc/cinder/cinder.conf' -> '/tmp/137_etc_cinder_cinder.conf.iniset'
+iniset /tmp/137_etc_cinder_cinder.conf.iniset DEFAULT my_ip 10.0.0.11
+'/etc/cinder/cinder.conf' -> '/tmp/138_etc_cinder_cinder.conf.iniset'
+iniset /tmp/138_etc_cinder_cinder.conf.iniset oslo_concurrency lock_path /var/lib/cinder/tmp
+Populating the Block Storage database.
+2021-03-21 02:24:41.158 3480 INFO migrate.versioning.api [-] 122 -> 123... [00m
+2021-03-21 02:24:43.147 3480 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:24:43.147 3480 INFO migrate.versioning.api [-] 123 -> 124... [00m
+2021-03-21 02:24:43.152 3480 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:24:43.152 3480 INFO migrate.versioning.api [-] 124 -> 125... [00m
+2021-03-21 02:24:43.162 3480 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:24:43.162 3480 INFO migrate.versioning.api [-] 125 -> 126... [00m
+2021-03-21 02:24:43.171 3480 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:24:43.171 3480 INFO migrate.versioning.api [-] 126 -> 127... [00m
+2021-03-21 02:24:43.198 3480 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:24:43.199 3480 INFO migrate.versioning.api [-] 127 -> 128... [00m
+2021-03-21 02:24:43.277 3480 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:24:43.277 3480 INFO migrate.versioning.api [-] 128 -> 129... [00m
+2021-03-21 02:24:43.286 3480 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:24:43.287 3480 INFO migrate.versioning.api [-] 129 -> 130... [00m
+2021-03-21 02:24:43.293 3480 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:24:43.293 3480 INFO migrate.versioning.api [-] 130 -> 131... [00m
+2021-03-21 02:24:43.315 3480 INFO migrate.versioning.api [-] done[00m
+2021-03-21 02:24:43.319 3480 INFO migrate.versioning.api [-] 131 -> 132... [00m
+2021-03-21 02:24:43.351 3480 INFO migrate.versioning.api [-] done[00m
+Configuring Compute to use Block Storage.
+'/etc/nova/nova.conf' -> '/tmp/139_etc_nova_nova.conf.iniset'
+iniset /tmp/139_etc_nova_nova.conf.iniset cinder os_region_name RegionOne
+drwxr-x--- 3 root cinder 4096 Mar 21 02:24 /etc/cinder
+Setting owner for /etc/cinder.
+changed ownership of '/etc/cinder' from root:cinder to cinder:cinder
+Restarting the Compute API service.
+Restarting the Block Storage services.
+Waiting for cinder to start.

@@ -1,0 +1,117 @@
+Waiting for first DHCP namespace.
+Waiting for first bridge to show up.
+Waiting for neutron to come up.
+Sourcing the demo credentials.
+Creating the private network.
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field                     | Value                                                                                                                                                       |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| admin_state_up            | UP                                                                                                                                                          |
+| availability_zone_hints   |                                                                                                                                                             |
+| availability_zones        |                                                                                                                                                             |
+| created_at                | 2021-03-21T02:34:18Z                                                                                                                                        |
+| description               |                                                                                                                                                             |
+| dns_domain                | None                                                                                                                                                        |
+| id                        | 199ad460-4c78-4a74-a564-18dbd950550f                                                                                                                        |
+| ipv4_address_scope        | None                                                                                                                                                        |
+| ipv6_address_scope        | None                                                                                                                                                        |
+| is_default                | False                                                                                                                                                       |
+| is_vlan_transparent       | None                                                                                                                                                        |
+| location                  | cloud='', project.domain_id=, project.domain_name='Default', project.id='2daf3246004047f89335197e774f97df', project.name='myproject', region_name='', zone= |
+| mtu                       | 1450                                                                                                                                                        |
+| name                      | selfservice                                                                                                                                                 |
+| port_security_enabled     | True                                                                                                                                                        |
+| project_id                | 2daf3246004047f89335197e774f97df                                                                                                                            |
+| provider:network_type     | None                                                                                                                                                        |
+| provider:physical_network | None                                                                                                                                                        |
+| provider:segmentation_id  | None                                                                                                                                                        |
+| qos_policy_id             | None                                                                                                                                                        |
+| revision_number           | 1                                                                                                                                                           |
+| router:external           | Internal                                                                                                                                                    |
+| segments                  | None                                                                                                                                                        |
+| shared                    | False                                                                                                                                                       |
+| status                    | ACTIVE                                                                                                                                                      |
+| subnets                   |                                                                                                                                                             |
+| tags                      |                                                                                                                                                             |
+| updated_at                | 2021-03-21T02:34:18Z                                                                                                                                        |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Creating a subnet on the private network.
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field             | Value                                                                                                                                                       |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| allocation_pools  | 172.16.1.2-172.16.1.254                                                                                                                                     |
+| cidr              | 172.16.1.0/24                                                                                                                                               |
+| created_at        | 2021-03-21T02:34:21Z                                                                                                                                        |
+| description       |                                                                                                                                                             |
+| dns_nameservers   | 8.8.4.4                                                                                                                                                     |
+| enable_dhcp       | True                                                                                                                                                        |
+| gateway_ip        | 172.16.1.1                                                                                                                                                  |
+| host_routes       |                                                                                                                                                             |
+| id                | a2d26457-5cc4-4fc5-9851-c294768fab56                                                                                                                        |
+| ip_version        | 4                                                                                                                                                           |
+| ipv6_address_mode | None                                                                                                                                                        |
+| ipv6_ra_mode      | None                                                                                                                                                        |
+| location          | cloud='', project.domain_id=, project.domain_name='Default', project.id='2daf3246004047f89335197e774f97df', project.name='myproject', region_name='', zone= |
+| name              | selfservice                                                                                                                                                 |
+| network_id        | 199ad460-4c78-4a74-a564-18dbd950550f                                                                                                                        |
+| prefix_length     | None                                                                                                                                                        |
+| project_id        | 2daf3246004047f89335197e774f97df                                                                                                                            |
+| revision_number   | 0                                                                                                                                                           |
+| segment_id        | None                                                                                                                                                        |
+| service_types     |                                                                                                                                                             |
+| subnetpool_id     | None                                                                                                                                                        |
+| tags              |                                                                                                                                                             |
+| updated_at        | 2021-03-21T02:34:21Z                                                                                                                                        |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Waiting for second DHCP namespace..
+Waiting for second bridge.......
+Bridges are:
+bridge name	bridge id		STP enabled	interfaces
+brq199ad460-4c		8000.000000000000	no		
+brqe399df7a-1b		8000.080027258898	no		enp0s9
+							tap64bea75d-df
+Sourcing the demo credentials.
+Creating a router.
++-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field                   | Value                                                                                                                                                       |
++-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| admin_state_up          | UP                                                                                                                                                          |
+| availability_zone_hints |                                                                                                                                                             |
+| availability_zones      |                                                                                                                                                             |
+| created_at              | 2021-03-21T02:34:35Z                                                                                                                                        |
+| description             |                                                                                                                                                             |
+| external_gateway_info   | null                                                                                                                                                        |
+| flavor_id               | None                                                                                                                                                        |
+| id                      | 12aabf3f-81af-4321-a727-0285f9137e5b                                                                                                                        |
+| location                | cloud='', project.domain_id=, project.domain_name='Default', project.id='2daf3246004047f89335197e774f97df', project.name='myproject', region_name='', zone= |
+| name                    | router                                                                                                                                                      |
+| project_id              | 2daf3246004047f89335197e774f97df                                                                                                                            |
+| revision_number         | 1                                                                                                                                                           |
+| routes                  |                                                                                                                                                             |
+| status                  | ACTIVE                                                                                                                                                      |
+| tags                    |                                                                                                                                                             |
+| updated_at              | 2021-03-21T02:34:35Z                                                                                                                                        |
++-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Waiting for neutron agent neutron-l3-agent.
+linuxbridge-agent and dhcp-agent must be up before we can add interfaces.
+Waiting for neutron agent neutron-linuxbridge-agent.
+Waiting for neutron agent neutron-dhcp-agent.
+Adding the private network subnet as an interface on the router.
+Getting router namespace....qrouter-12aabf3f-81af-4321-a727-0285f9137e5b
+Waiting for interface qr-* in router namespace...qr-7d287c2e-6c@if12
+Setting a gateway on the public network on the router.
+Waiting for interface qg-* in router namespace....qg-c6f1d11e-2c@if13
+Listing network namespaces.
+qrouter-12aabf3f-81af-4321-a727-0285f9137e5b (id: 2)
+qdhcp-199ad460-4c78-4a74-a564-18dbd950550f (id: 1)
+qdhcp-e399df7a-1bf5-4380-b40a-58f7e7a41c76 (id: 0)
+Sourcing the admin credentials.
+Getting the router's IP address in the public network.
+openstack port list --router router
++--------------------------------------+------+-------------------+------------------------------------------------------------------------------+--------+
+| ID                                   | Name | MAC Address       | Fixed IP Addresses                                                           | Status |
++--------------------------------------+------+-------------------+------------------------------------------------------------------------------+--------+
+| 7d287c2e-6cc8-4b55-867f-52579d2ecf6f |      | fa:16:3e:5e:d7:cd | ip_address='172.16.1.1', subnet_id='a2d26457-5cc4-4fc5-9851-c294768fab56'    | ACTIVE |
+| c6f1d11e-2c78-4626-8fbe-662c2ddf49ea |      | fa:16:3e:29:a7:ee | ip_address='203.0.113.141', subnet_id='ee5ed037-25d0-46a9-9613-f2c7703f0b47' | BUILD  |
++--------------------------------------+------+-------------------+------------------------------------------------------------------------------+--------+
+Waiting for ping reply from public router IP (203.0.113.141)....................ERROR No reply from public router IP in 20 seconds, aborting.

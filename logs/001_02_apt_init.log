@@ -1,0 +1,148 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Get:2 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic/main i386 Packages [1,007 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic/main amd64 Packages [1,019 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic/main Translation-en [516 kB]
+Get:8 http://archive.ubuntu.com/ubuntu bionic/restricted amd64 Packages [9,184 B]
+Get:9 http://archive.ubuntu.com/ubuntu bionic/restricted i386 Packages [9,156 B]
+Get:10 http://archive.ubuntu.com/ubuntu bionic/restricted Translation-en [3,584 B]
+Get:11 http://archive.ubuntu.com/ubuntu bionic/universe i386 Packages [8,531 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8,570 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic/universe Translation-en [4,941 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic/multiverse i386 Packages [144 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/main i386 Packages [1,241 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [1,949 kB]
+Get:19 http://archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [398 kB]
+Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/restricted i386 Packages [24.3 kB]
+Get:21 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [278 kB]
+Get:22 http://archive.ubuntu.com/ubuntu bionic-updates/restricted Translation-en [37.2 kB]
+Get:23 http://archive.ubuntu.com/ubuntu bionic-updates/universe i386 Packages [1,561 kB]
+Get:24 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1,720 kB]
+Get:25 http://archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [364 kB]
+Get:26 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse i386 Packages [11.6 kB]
+Get:27 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [24.9 kB]
+Get:28 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [6,464 B]
+Get:29 http://archive.ubuntu.com/ubuntu bionic-backports/main i386 Packages [10.0 kB]
+Get:30 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [10.0 kB]
+Get:31 http://archive.ubuntu.com/ubuntu bionic-backports/main Translation-en [4,764 B]
+Get:32 http://archive.ubuntu.com/ubuntu bionic-backports/universe i386 Packages [10.3 kB]
+Get:33 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [10.3 kB]
+Get:34 http://archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [4,588 B]
+Fetched 33.1 MB in 1min 32s (360 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+94 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Installing packages needed for add-apt-repository.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  python3-software-properties unattended-upgrades
+Suggested packages:
+  bsd-mailx default-mta | mail-transport-agent needrestart
+The following NEW packages will be installed:
+  python3-software-properties software-properties-common unattended-upgrades
+0 upgraded, 3 newly installed, 0 to remove and 94 not upgraded.
+Need to get 75.6 kB of archives.
+After this operation, 762 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3-software-properties all 0.96.24.32.14 [23.9 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 software-properties-common all 0.96.24.32.14 [10.1 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 unattended-upgrades all 1.1ubuntu1.18.04.14 [41.7 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 75.6 kB in 1s (67.1 kB/s)
+Selecting previously unselected package python3-software-properties.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 66763 files and directories currently installed.)
+Preparing to unpack .../python3-software-properties_0.96.24.32.14_all.deb ...
+Unpacking python3-software-properties (0.96.24.32.14) ...
+Selecting previously unselected package software-properties-common.
+Preparing to unpack .../software-properties-common_0.96.24.32.14_all.deb ...
+Unpacking software-properties-common (0.96.24.32.14) ...
+Selecting previously unselected package unattended-upgrades.
+Preparing to unpack .../unattended-upgrades_1.1ubuntu1.18.04.14_all.deb ...
+Unpacking unattended-upgrades (1.1ubuntu1.18.04.14) ...
+Setting up unattended-upgrades (1.1ubuntu1.18.04.14) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+
+Creating config file /etc/apt/apt.conf.d/50unattended-upgrades with new version
+Created symlink /etc/systemd/system/multi-user.target.wants/unattended-upgrades.service -> /lib/systemd/system/unattended-upgrades.service.
+Synchronizing state of unattended-upgrades.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable unattended-upgrades
+Setting up python3-software-properties (0.96.24.32.14) ...
+Setting up software-properties-common (0.96.24.32.14) ...
+Processing triggers for systemd (237-3ubuntu10.42) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for dbus (1.12.2-1ubuntu1.2) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Adding cloud repo: cloud-archive:train
+ Ubuntu Cloud Archive for OpenStack Train
+ More info: https://wiki.ubuntu.com/OpenStack/CloudArchive
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  ubuntu-cloud-keyring
+0 upgraded, 1 newly installed, 0 to remove and 94 not upgraded.
+Need to get 6,008 B of archives.
+After this operation, 22.5 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 ubuntu-cloud-keyring all 2018.09.18.1~18.04.0 [6,008 B]
+Fetched 6,008 B in 1s (11.8 kB/s)
+Selecting previously unselected package ubuntu-cloud-keyring.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 66829 files and directories currently installed.)
+Preparing to unpack .../ubuntu-cloud-keyring_2018.09.18.1~18.04.0_all.deb ...
+Unpacking ubuntu-cloud-keyring (2018.09.18.1~18.04.0) ...
+Setting up ubuntu-cloud-keyring (2018.09.18.1~18.04.0) ...
+Hit:1 http://archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease
+Get:5 http://ubuntu-cloud.archive.canonical.com/ubuntu bionic-updates/train InRelease [8,767 B]
+Get:6 http://ubuntu-cloud.archive.canonical.com/ubuntu bionic-updates/train/main i386 Packages [170 kB]
+Get:7 http://ubuntu-cloud.archive.canonical.com/ubuntu bionic-updates/train/main amd64 Packages [171 kB]
+Fetched 349 kB in 2s (188 kB/s)
+Reading package lists...
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 http://ubuntu-cloud.archive.canonical.com/ubuntu bionic-updates/train InRelease
+Reading package lists...
+Building dependency tree...
+Reading state information...
+4 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Removed /etc/systemd/system/timers.target.wants/apt-daily.timer.
+# bionic mariadb 10.1 breaks neutron DB upgrade process in OpenStack Train
+deb http://downloads.mariadb.com/MariaDB/mariadb-10.3/repo/ubuntu bionic main
+Warning: apt-key output should not be parsed (stdout is not a terminal)
+Executing: /tmp/apt-key-gpghome.ZmfxPijdPb/gpg.1.sh --keyserver keyserver.ubuntu.com --recv-keys F1656F24C74CD1D8
+gpg: key F1656F24C74CD1D8: 7 signatures not checked due to missing keys
+gpg: key F1656F24C74CD1D8: public key "MariaDB Signing Key <signing-key@mariadb.org>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Get:1 https://downloads.mariadb.com/MariaDB/mariadb-10.3/repo/ubuntu bionic InRelease [6,265 B]
+Get:2 https://downloads.mariadb.com/MariaDB/mariadb-10.3/repo/ubuntu bionic/main amd64 Packages [16.2 kB]
+Fetched 22.4 kB in 3s (6,769 B/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+All packages are up to date.

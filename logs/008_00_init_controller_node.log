@@ -1,0 +1,53 @@
+Set IF_NAMES to lo enp0s3 enp0s8 enp0s9
+'/osbash/lib/osbash/templates/template-ubuntu-interfaces-loopback' -> '/etc/network/interfaces'
+ifnum_to_ifname: interface 0 is enp0s3
+
+# VirtualBox NAT -- for Internet access to VM
+auto enp0s3
+iface enp0s3 inet dhcp
+ifnum_to_ifname: interface 1 is enp0s8
+
+auto enp0s8
+iface enp0s8 inet static
+      address 10.0.0.11
+      netmask 255.255.255.0
+ifnum_to_ifname: interface 2 is enp0s9
+
+auto enp0s9
+iface enp0s9 inet manual
+up ip link set dev $IFACE up
+down ip link set dev $IFACE down
+---------- /etc/network/interfaces
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# VirtualBox NAT -- for Internet access to VM
+auto enp0s3
+iface enp0s3 inet dhcp
+
+auto enp0s8
+iface enp0s8 inet static
+      address 10.0.0.11
+      netmask 255.255.255.0
+
+auto enp0s9
+iface enp0s9 inet manual
+up ip link set dev $IFACE up
+down ip link set dev $IFACE down
+---------------------------------------------------------------
+ifup: interface lo already configured
+Internet Systems Consortium DHCP Client 4.3.5
+Copyright 2004-2016 Internet Systems Consortium.
+All rights reserved.
+For info, please visit https://www.isc.org/software/dhcp/
+
+Listening on LPF/enp0s3/08:00:27:c4:66:1c
+Sending on   LPF/enp0s3/08:00:27:c4:66:1c
+Sending on   Socket/fallback
+DHCPDISCOVER on enp0s3 to 255.255.255.255 port 67 interval 3 (xid=0x9aa88450)
+DHCPREQUEST of 10.0.2.15 on enp0s3 to 255.255.255.255 port 67 (xid=0x5084a89a)
+DHCPOFFER of 10.0.2.15 from 10.0.2.2
+DHCPACK of 10.0.2.15 from 10.0.2.2
+RTNETLINK answers: File exists
+bound to 10.0.2.15 -- renewal in 35157 seconds.

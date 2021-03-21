@@ -1,0 +1,48 @@
+Installing memcache packages.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libevent-2.1-6 python-six
+Suggested packages:
+  libcache-memcached-perl libmemcached libanyevent-perl libyaml-perl
+The following NEW packages will be installed:
+  libevent-2.1-6 memcached python-memcache python-six
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+0 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/272 kB of archives.
+After this operation, 808 kB of additional disk space will be used.
+Selecting previously unselected package libevent-2.1-6:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 112826 files and directories currently installed.)
+Preparing to unpack .../libevent-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package memcached.
+Preparing to unpack .../memcached_1.5.6-0ubuntu1.2_amd64.deb ...
+Unpacking memcached (1.5.6-0ubuntu1.2) ...
+Selecting previously unselected package python-six.
+Preparing to unpack .../python-six_1.11.0-2_all.deb ...
+Unpacking python-six (1.11.0-2) ...
+Selecting previously unselected package python-memcache.
+Preparing to unpack .../python-memcache_1.59-1~cloud0_all.deb ...
+Unpacking python-memcache (1.59-1~cloud0) ...
+Setting up libevent-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up memcached (1.5.6-0ubuntu1.2) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/memcached.service -> /lib/systemd/system/memcached.service.
+Setting up python-six (1.11.0-2) ...
+Setting up python-memcache (1.59-1~cloud0) ...
+Processing triggers for systemd (237-3ubuntu10.45) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+Success. Node controller in mgmt: 10.0.0.11.
+Binding memcached server to 10.0.0.11.
+Restarting memcache service.

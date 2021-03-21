@@ -1,0 +1,166 @@
+Waiting for keystone to come up.
+Configuring the metadata agent.
+'/etc/neutron/metadata_agent.ini' -> '/tmp/105_etc_neutron_metadata_agent.ini.iniset'
+iniset /tmp/105_etc_neutron_metadata_agent.ini.iniset DEFAULT nova_metadata_host controller
+'/etc/neutron/metadata_agent.ini' -> '/tmp/106_etc_neutron_metadata_agent.ini.iniset'
+iniset /tmp/106_etc_neutron_metadata_agent.ini.iniset DEFAULT metadata_proxy_shared_secret osbash_training
+Configuring Compute to use Networking.
+'/etc/nova/nova.conf' -> '/tmp/107_etc_nova_nova.conf.iniset'
+iniset /tmp/107_etc_nova_nova.conf.iniset neutron auth_url http://controller:5000
+'/etc/nova/nova.conf' -> '/tmp/108_etc_nova_nova.conf.iniset'
+iniset /tmp/108_etc_nova_nova.conf.iniset neutron auth_type password
+'/etc/nova/nova.conf' -> '/tmp/109_etc_nova_nova.conf.iniset'
+iniset /tmp/109_etc_nova_nova.conf.iniset neutron project_domain_name default
+'/etc/nova/nova.conf' -> '/tmp/110_etc_nova_nova.conf.iniset'
+iniset /tmp/110_etc_nova_nova.conf.iniset neutron user_domain_name default
+'/etc/nova/nova.conf' -> '/tmp/111_etc_nova_nova.conf.iniset'
+iniset /tmp/111_etc_nova_nova.conf.iniset neutron region_name RegionOne
+'/etc/nova/nova.conf' -> '/tmp/112_etc_nova_nova.conf.iniset'
+iniset /tmp/112_etc_nova_nova.conf.iniset neutron project_name service
+'/etc/nova/nova.conf' -> '/tmp/113_etc_nova_nova.conf.iniset'
+iniset /tmp/113_etc_nova_nova.conf.iniset neutron username neutron
+'/etc/nova/nova.conf' -> '/tmp/114_etc_nova_nova.conf.iniset'
+iniset /tmp/114_etc_nova_nova.conf.iniset neutron password neutron_user_secret
+'/etc/nova/nova.conf' -> '/tmp/115_etc_nova_nova.conf.iniset'
+iniset /tmp/115_etc_nova_nova.conf.iniset neutron service_metadata_proxy true
+'/etc/nova/nova.conf' -> '/tmp/116_etc_nova_nova.conf.iniset'
+iniset /tmp/116_etc_nova_nova.conf.iniset neutron metadata_proxy_shared_secret osbash_training
+Populating the database.
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+/usr/lib/python3/dist-packages/pymysql/cursors.py:165: Warning: (1280, "Name 'alembic_version_pkc' ignored for PRIMARY key.")
+  result = self._query(query)
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> kilo
+INFO  [alembic.runtime.migration] Running upgrade kilo -> 354db87e3225
+INFO  [alembic.runtime.migration] Running upgrade 354db87e3225 -> 599c6a226151
+INFO  [alembic.runtime.migration] Running upgrade 599c6a226151 -> 52c5312f6baf
+INFO  [alembic.runtime.migration] Running upgrade 52c5312f6baf -> 313373c0ffee
+INFO  [alembic.runtime.migration] Running upgrade 313373c0ffee -> 8675309a5c4f
+INFO  [alembic.runtime.migration] Running upgrade 8675309a5c4f -> 45f955889773
+INFO  [alembic.runtime.migration] Running upgrade 45f955889773 -> 26c371498592
+INFO  [alembic.runtime.migration] Running upgrade 26c371498592 -> 1c844d1677f7
+INFO  [alembic.runtime.migration] Running upgrade 1c844d1677f7 -> 1b4c6e320f79
+INFO  [alembic.runtime.migration] Running upgrade 1b4c6e320f79 -> 48153cb5f051
+INFO  [alembic.runtime.migration] Running upgrade 48153cb5f051 -> 9859ac9c136
+INFO  [alembic.runtime.migration] Running upgrade 9859ac9c136 -> 34af2b5c5a59
+INFO  [alembic.runtime.migration] Running upgrade 34af2b5c5a59 -> 59cb5b6cf4d
+INFO  [alembic.runtime.migration] Running upgrade 59cb5b6cf4d -> 13cfb89f881a
+INFO  [alembic.runtime.migration] Running upgrade 13cfb89f881a -> 32e5974ada25
+INFO  [alembic.runtime.migration] Running upgrade 32e5974ada25 -> ec7fcfbf72ee
+INFO  [alembic.runtime.migration] Running upgrade ec7fcfbf72ee -> dce3ec7a25c9
+INFO  [alembic.runtime.migration] Running upgrade dce3ec7a25c9 -> c3a73f615e4
+INFO  [alembic.runtime.migration] Running upgrade c3a73f615e4 -> 659bf3d90664
+INFO  [alembic.runtime.migration] Running upgrade 659bf3d90664 -> 1df244e556f5
+INFO  [alembic.runtime.migration] Running upgrade 1df244e556f5 -> 19f26505c74f
+INFO  [alembic.runtime.migration] Running upgrade 19f26505c74f -> 15be73214821
+INFO  [alembic.runtime.migration] Running upgrade 15be73214821 -> b4caf27aae4
+INFO  [alembic.runtime.migration] Running upgrade b4caf27aae4 -> 15e43b934f81
+INFO  [alembic.runtime.migration] Running upgrade 15e43b934f81 -> 31ed664953e6
+INFO  [alembic.runtime.migration] Running upgrade 31ed664953e6 -> 2f9e956e7532
+INFO  [alembic.runtime.migration] Running upgrade 2f9e956e7532 -> 3894bccad37f
+INFO  [alembic.runtime.migration] Running upgrade 3894bccad37f -> 0e66c5227a8a
+INFO  [alembic.runtime.migration] Running upgrade 0e66c5227a8a -> 45f8dd33480b
+INFO  [alembic.runtime.migration] Running upgrade 45f8dd33480b -> 5abc0278ca73
+INFO  [alembic.runtime.migration] Running upgrade kilo -> 30018084ec99
+INFO  [alembic.runtime.migration] Running upgrade 30018084ec99 -> 4ffceebfada
+INFO  [alembic.runtime.migration] Running upgrade 4ffceebfada -> 5498d17be016
+INFO  [alembic.runtime.migration] Running upgrade 5498d17be016 -> 2a16083502f3
+INFO  [alembic.runtime.migration] Running upgrade 2a16083502f3 -> 2e5352a0ad4d
+INFO  [alembic.runtime.migration] Running upgrade 2e5352a0ad4d -> 11926bcfe72d
+INFO  [alembic.runtime.migration] Running upgrade 11926bcfe72d -> 4af11ca47297
+INFO  [alembic.runtime.migration] Running upgrade 4af11ca47297 -> 1b294093239c
+INFO  [alembic.runtime.migration] Running upgrade 1b294093239c -> 8a6d8bdae39
+INFO  [alembic.runtime.migration] Running upgrade 8a6d8bdae39 -> 2b4c2465d44b
+INFO  [alembic.runtime.migration] Running upgrade 2b4c2465d44b -> e3278ee65050
+INFO  [alembic.runtime.migration] Running upgrade e3278ee65050 -> c6c112992c9
+INFO  [alembic.runtime.migration] Running upgrade c6c112992c9 -> 5ffceebfada
+INFO  [alembic.runtime.migration] Running upgrade 5ffceebfada -> 4ffceebfcdc
+INFO  [alembic.runtime.migration] Running upgrade 4ffceebfcdc -> 7bbb25278f53
+INFO  [alembic.runtime.migration] Running upgrade 7bbb25278f53 -> 89ab9a816d70
+INFO  [alembic.runtime.migration] Running upgrade 5abc0278ca73 -> d3435b514502
+INFO  [alembic.runtime.migration] Running upgrade d3435b514502 -> 30107ab6a3ee
+INFO  [alembic.runtime.migration] Running upgrade 30107ab6a3ee -> c415aab1c048
+INFO  [alembic.runtime.migration] Running upgrade c415aab1c048 -> a963b38d82f4
+INFO  [alembic.runtime.migration] Running upgrade a963b38d82f4 -> 3d0e74aa7d37
+INFO  [alembic.runtime.migration] Running upgrade 3d0e74aa7d37 -> 030a959ceafa
+INFO  [alembic.runtime.migration] Running upgrade 030a959ceafa -> a5648cfeeadf
+INFO  [alembic.runtime.migration] Running upgrade a5648cfeeadf -> 0f5bef0f87d4
+INFO  [alembic.runtime.migration] Running upgrade 0f5bef0f87d4 -> 67daae611b6e
+INFO  [alembic.runtime.migration] Running upgrade 89ab9a816d70 -> c879c5e1ee90
+INFO  [alembic.runtime.migration] Running upgrade c879c5e1ee90 -> 8fd3918ef6f4
+INFO  [alembic.runtime.migration] Running upgrade 8fd3918ef6f4 -> 4bcd4df1f426
+INFO  [alembic.runtime.migration] Running upgrade 4bcd4df1f426 -> b67e765a3524
+INFO  [alembic.runtime.migration] Running upgrade 67daae611b6e -> 6b461a21bcfc
+INFO  [alembic.runtime.migration] Running upgrade 6b461a21bcfc -> 5cd92597d11d
+INFO  [alembic.runtime.migration] Running upgrade 5cd92597d11d -> 929c968efe70
+INFO  [alembic.runtime.migration] Running upgrade 929c968efe70 -> a9c43481023c
+INFO  [alembic.runtime.migration] Running upgrade a9c43481023c -> 804a3c76314c
+INFO  [alembic.runtime.migration] Running upgrade 804a3c76314c -> 2b42d90729da
+INFO  [alembic.runtime.migration] Running upgrade 2b42d90729da -> 62c781cb6192
+INFO  [alembic.runtime.migration] Running upgrade 62c781cb6192 -> c8c222d42aa9
+INFO  [alembic.runtime.migration] Running upgrade c8c222d42aa9 -> 349b6fd605a6
+INFO  [alembic.runtime.migration] Running upgrade 349b6fd605a6 -> 7d32f979895f
+INFO  [alembic.runtime.migration] Running upgrade 7d32f979895f -> 594422d373ee
+INFO  [alembic.runtime.migration] Running upgrade 594422d373ee -> 61663558142c
+INFO  [alembic.runtime.migration] Running upgrade 61663558142c -> 867d39095bf4, port forwarding
+INFO  [alembic.runtime.migration] Running upgrade 867d39095bf4 -> d72db3e25539, modify uniq port forwarding
+INFO  [alembic.runtime.migration] Running upgrade d72db3e25539 -> cada2437bf41
+INFO  [alembic.runtime.migration] Running upgrade cada2437bf41 -> 195176fb410d, router gateway IP QoS
+INFO  [alembic.runtime.migration] Running upgrade 195176fb410d -> fb0167bd9639
+INFO  [alembic.runtime.migration] Running upgrade fb0167bd9639 -> 0ff9e3881597
+INFO  [alembic.runtime.migration] Running upgrade 0ff9e3881597 -> 9bfad3f1e780
+INFO  [alembic.runtime.migration] Running upgrade 9bfad3f1e780 -> 63fd95af7dcd
+INFO  [alembic.runtime.migration] Running upgrade 63fd95af7dcd -> c613d0b82681
+INFO  [alembic.runtime.migration] Running upgrade b67e765a3524 -> a84ccf28f06a
+INFO  [alembic.runtime.migration] Running upgrade a84ccf28f06a -> 7d9d8eeec6ad
+INFO  [alembic.runtime.migration] Running upgrade 7d9d8eeec6ad -> a8b517cff8ab
+INFO  [alembic.runtime.migration] Running upgrade a8b517cff8ab -> 3b935b28e7a0
+INFO  [alembic.runtime.migration] Running upgrade 3b935b28e7a0 -> b12a3ef66e62
+INFO  [alembic.runtime.migration] Running upgrade b12a3ef66e62 -> 97c25b0d2353
+INFO  [alembic.runtime.migration] Running upgrade 97c25b0d2353 -> 2e0d7a8a1586
+INFO  [alembic.runtime.migration] Running upgrade 2e0d7a8a1586 -> 5c85685d616d
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+/usr/lib/python3/dist-packages/pymysql/cursors.py:165: Warning: (1280, "Name 'alembic_version_fwaas_pkc' ignored for PRIMARY key.")
+  result = self._query(query)
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> start_neutron_fwaas, start neutron-fwaas chain
+INFO  [alembic.runtime.migration] Running upgrade start_neutron_fwaas -> 4202e3047e47, add_index_tenant_id
+INFO  [alembic.runtime.migration] Running upgrade 4202e3047e47 -> 540142f314f4, FWaaS router insertion
+INFO  [alembic.runtime.migration] Running upgrade 540142f314f4 -> 796c68dffbb, cisco_csr_fwaas
+INFO  [alembic.runtime.migration] Running upgrade 796c68dffbb -> kilo, kilo
+INFO  [alembic.runtime.migration] Running upgrade kilo -> c40fbb377ad, Initial Liberty no-op script.
+INFO  [alembic.runtime.migration] Running upgrade c40fbb377ad -> 4b47ea298795, add reject rule
+INFO  [alembic.runtime.migration] Running upgrade 4b47ea298795 -> d6a12e637e28, neutron-fwaas v2.0
+/usr/lib/python3/dist-packages/pymysql/cursors.py:165: Warning: (1280, "Name 'pk_firewall_group_port_associations_v2' ignored for PRIMARY key.")
+  result = self._query(query)
+INFO  [alembic.runtime.migration] Running upgrade d6a12e637e28 -> 876782258a43, create_default_firewall_groups_table
+INFO  [alembic.runtime.migration] Running upgrade 876782258a43 -> f24e0d5e5bff, uniq_firewallgroupportassociation0port
+INFO  [alembic.runtime.migration] Running upgrade f24e0d5e5bff -> 2a0d33e9ef63, add pk firewall_group_associations_v2
+INFO  [alembic.runtime.migration] Running upgrade kilo -> 67c8e8d61d5, Initial Liberty no-op script.
+INFO  [alembic.runtime.migration] Running upgrade 67c8e8d61d5 -> 458aa42b14b, fw_table_alter script to make <name> column case sensitive
+INFO  [alembic.runtime.migration] Running upgrade 458aa42b14b -> f83a0b2964d0, rename tenant to project
+INFO  [alembic.runtime.migration] Running upgrade f83a0b2964d0 -> fd38cd995cc0, change shared attribute for firewall resource
+Running upgrade for neutron ...
+OK
+Running upgrade for neutron-fwaas ...
+OK
+Restarting nova services.
+Restarting neutron-server.
+Restarting neutron-linuxbridge-agent.
+Restarting neutron-dhcp-agent.
+Restarting neutron-metadata-agent.
+neutron-l3-agent is /usr/bin/neutron-l3-agent
+Restarting neutron-l3-agent.
+Verifying operation..
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+| ID                                   | Agent Type         | Host       | Availability Zone | Alive | State | Binary                    |
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+| 69c3ba01-22d7-4214-93a3-163298d964d8 | L3 agent           | controller | nova              | :-)   | UP    | neutron-l3-agent          |
+| 8000aa59-dd80-4812-92d7-67304a8b5549 | Linux bridge agent | controller | None              | :-)   | UP    | neutron-linuxbridge-agent |
+| e9ae8361-1385-435e-b68c-d1cc38d2d2a9 | DHCP agent         | controller | nova              | :-)   | UP    | neutron-dhcp-agent        |
+| f6464d5c-b8ba-4589-8662-afa901520578 | Metadata agent     | controller | None              | :-)   | UP    | neutron-metadata-agent    |
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+

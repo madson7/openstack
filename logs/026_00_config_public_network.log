@@ -1,0 +1,71 @@
+Sourcing the admin credentials.
+Waiting for neutron to come up..
+Waiting for neutron agent neutron-l3-agent.
+linuxbridge-agent and dhcp-agent must be up before we can add interfaces.
+Waiting for neutron agent neutron-linuxbridge-agent.
+Waiting for neutron agent neutron-dhcp-agent.
+Creating the public network.
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field                     | Value                                                                                                                                                   |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| admin_state_up            | UP                                                                                                                                                      |
+| availability_zone_hints   |                                                                                                                                                         |
+| availability_zones        |                                                                                                                                                         |
+| created_at                | 2021-03-21T02:33:07Z                                                                                                                                    |
+| description               |                                                                                                                                                         |
+| dns_domain                | None                                                                                                                                                    |
+| id                        | e399df7a-1bf5-4380-b40a-58f7e7a41c76                                                                                                                    |
+| ipv4_address_scope        | None                                                                                                                                                    |
+| ipv6_address_scope        | None                                                                                                                                                    |
+| is_default                | False                                                                                                                                                   |
+| is_vlan_transparent       | None                                                                                                                                                    |
+| location                  | cloud='', project.domain_id=, project.domain_name='Default', project.id='ecf92be2be214a25a8c1e6ca73afe24b', project.name='admin', region_name='', zone= |
+| mtu                       | 1500                                                                                                                                                    |
+| name                      | provider                                                                                                                                                |
+| port_security_enabled     | True                                                                                                                                                    |
+| project_id                | ecf92be2be214a25a8c1e6ca73afe24b                                                                                                                        |
+| provider:network_type     | flat                                                                                                                                                    |
+| provider:physical_network | provider                                                                                                                                                |
+| provider:segmentation_id  | None                                                                                                                                                    |
+| qos_policy_id             | None                                                                                                                                                    |
+| revision_number           | 1                                                                                                                                                       |
+| router:external           | External                                                                                                                                                |
+| segments                  | None                                                                                                                                                    |
+| shared                    | True                                                                                                                                                    |
+| status                    | ACTIVE                                                                                                                                                  |
+| subnets                   |                                                                                                                                                         |
+| tags                      |                                                                                                                                                         |
+| updated_at                | 2021-03-21T02:33:07Z                                                                                                                                    |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+Creating a subnet on the public network.
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field             | Value                                                                                                                                                   |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| allocation_pools  | 203.0.113.101-203.0.113.200                                                                                                                             |
+| cidr              | 203.0.113.0/24                                                                                                                                          |
+| created_at        | 2021-03-21T02:33:10Z                                                                                                                                    |
+| description       |                                                                                                                                                         |
+| dns_nameservers   | 8.8.4.4                                                                                                                                                 |
+| enable_dhcp       | True                                                                                                                                                    |
+| gateway_ip        | 203.0.113.1                                                                                                                                             |
+| host_routes       |                                                                                                                                                         |
+| id                | ee5ed037-25d0-46a9-9613-f2c7703f0b47                                                                                                                    |
+| ip_version        | 4                                                                                                                                                       |
+| ipv6_address_mode | None                                                                                                                                                    |
+| ipv6_ra_mode      | None                                                                                                                                                    |
+| location          | cloud='', project.domain_id=, project.domain_name='Default', project.id='ecf92be2be214a25a8c1e6ca73afe24b', project.name='admin', region_name='', zone= |
+| name              | provider                                                                                                                                                |
+| network_id        | e399df7a-1bf5-4380-b40a-58f7e7a41c76                                                                                                                    |
+| prefix_length     | None                                                                                                                                                    |
+| project_id        | ecf92be2be214a25a8c1e6ca73afe24b                                                                                                                        |
+| revision_number   | 0                                                                                                                                                       |
+| segment_id        | None                                                                                                                                                    |
+| service_types     |                                                                                                                                                         |
+| subnetpool_id     | None                                                                                                                                                    |
+| tags              |                                                                                                                                                         |
+| updated_at        | 2021-03-21T02:33:10Z                                                                                                                                    |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+Waiting for DHCP namespace....................................................
+Waiting for bridge to show up........
+bridge name	bridge id		STP enabled	interfaces
+brqe399df7a-1b		8000.000000000000	no		

@@ -1,0 +1,533 @@
+Setting up placement database.
+Waiting for database server to come up.
+mysql cmd: CREATE DATABASE placement.
+mysql cmd: GRANT ALL ON placement.* TO 'placement'@'%' IDENTIFIED BY 'placement_db_secret';.
+mysql cmd: GRANT ALL ON placement.* TO 'placement'@'localhost' IDENTIFIED BY 'placement_db_secret';.
+Sourcing the admin credentials.
+Waiting for keystone to come up.
+Creating placement user and giving it the admin role.
++---------------------+----------------------------------+
+| Field               | Value                            |
++---------------------+----------------------------------+
+| domain_id           | default                          |
+| enabled             | True                             |
+| id                  | 30b2be7321ba4aacbe8dd3bc62fe31fe |
+| name                | placement                        |
+| options             | {}                               |
+| password_expires_at | None                             |
++---------------------+----------------------------------+
+Creating the Placement API entry in the service catalog.
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Placement API                    |
+| enabled     | True                             |
+| id          | 7b2f8456cef644b9abd2863501f1f46a |
+| name        | placement                        |
+| type        | placement                        |
++-------------+----------------------------------+
+Creating placement endpoints.
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| enabled      | True                             |
+| id           | 2431a4aa83ae4c3d93ff460594416d70 |
+| interface    | public                           |
+| region       | RegionOne                        |
+| region_id    | RegionOne                        |
+| service_id   | 7b2f8456cef644b9abd2863501f1f46a |
+| service_name | placement                        |
+| service_type | placement                        |
+| url          | http://controller:8778           |
++--------------+----------------------------------+
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| enabled      | True                             |
+| id           | 180e378771004909ad8c23bd62a5c356 |
+| interface    | internal                         |
+| region       | RegionOne                        |
+| region_id    | RegionOne                        |
+| service_id   | 7b2f8456cef644b9abd2863501f1f46a |
+| service_name | placement                        |
+| service_type | placement                        |
+| url          | http://controller:8778           |
++--------------+----------------------------------+
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| enabled      | True                             |
+| id           | 584cd3844d5a49f6ade66a4d66ff46f6 |
+| interface    | admin                            |
+| region       | RegionOne                        |
+| region_id    | RegionOne                        |
+| service_id   | 7b2f8456cef644b9abd2863501f1f46a |
+| service_name | placement                        |
+| service_type | placement                        |
+| url          | http://controller:8778           |
++--------------+----------------------------------+
+Installing placement-api for controller node.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  placement-common python3-placement
+The following NEW packages will be installed:
+  placement-api placement-common python3-placement
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/220 kB of archives.
+After this operation, 1,646 kB of additional disk space will be used.
+Selecting previously unselected package placement-common.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 142584 files and directories currently installed.)
+Preparing to unpack .../placement-common_2.0.0-0ubuntu1~cloud0_all.deb ...
+Unpacking placement-common (2.0.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package python3-placement.
+Preparing to unpack .../python3-placement_2.0.0-0ubuntu1~cloud0_all.deb ...
+Unpacking python3-placement (2.0.0-0ubuntu1~cloud0) ...
+Selecting previously unselected package placement-api.
+Preparing to unpack .../placement-api_2.0.0-0ubuntu1~cloud0_all.deb ...
+Unpacking placement-api (2.0.0-0ubuntu1~cloud0) ...
+Setting up placement-common (2.0.0-0ubuntu1~cloud0) ...
+Adding system user `placement' (UID 113) ...
+Adding new user `placement' (UID 113) with group `placement' ...
+Not creating home directory `/var/lib/placement'.
+Setting up python3-placement (2.0.0-0ubuntu1~cloud0) ...
+Setting up placement-api (2.0.0-0ubuntu1~cloud0) ...
+apache2_invoke: Enable site placement-api.conf
+Setting placement database connection: mysql+pymysql://placement:placement_db_secret@controller/placement.
+'/etc/placement/placement.conf' -> '/tmp/051_etc_placement_placement.conf.iniset'
+iniset /tmp/051_etc_placement_placement.conf.iniset placement_database connection mysql+pymysql://placement:placement_db_secret@controller/placement
+'/etc/placement/placement.conf' -> '/tmp/052_etc_placement_placement.conf.iniset'
+iniset /tmp/052_etc_placement_placement.conf.iniset api auth_strategy keystone
+Configuring Placement services.
+'/etc/placement/placement.conf' -> '/tmp/053_etc_placement_placement.conf.iniset'
+iniset /tmp/053_etc_placement_placement.conf.iniset keystone_authtoken auth_url http://controller:5000/v3
+'/etc/placement/placement.conf' -> '/tmp/054_etc_placement_placement.conf.iniset'
+iniset /tmp/054_etc_placement_placement.conf.iniset keystone_authtoken memcached_servers controller:11211
+'/etc/placement/placement.conf' -> '/tmp/055_etc_placement_placement.conf.iniset'
+iniset /tmp/055_etc_placement_placement.conf.iniset keystone_authtoken auth_type password
+'/etc/placement/placement.conf' -> '/tmp/056_etc_placement_placement.conf.iniset'
+iniset /tmp/056_etc_placement_placement.conf.iniset keystone_authtoken project_domain_name Default
+'/etc/placement/placement.conf' -> '/tmp/057_etc_placement_placement.conf.iniset'
+iniset /tmp/057_etc_placement_placement.conf.iniset keystone_authtoken user_domain_name Default
+'/etc/placement/placement.conf' -> '/tmp/058_etc_placement_placement.conf.iniset'
+iniset /tmp/058_etc_placement_placement.conf.iniset keystone_authtoken project_name service
+'/etc/placement/placement.conf' -> '/tmp/059_etc_placement_placement.conf.iniset'
+iniset /tmp/059_etc_placement_placement.conf.iniset keystone_authtoken username placement
+'/etc/placement/placement.conf' -> '/tmp/060_etc_placement_placement.conf.iniset'
+iniset /tmp/060_etc_placement_placement.conf.iniset keystone_authtoken password placement_user_secret
+Populating the placement database.
+/usr/lib/python3/dist-packages/pymysql/cursors.py:165: Warning: (1280, "Name 'alembic_version_pkc' ignored for PRIMARY key.")
+  result = self._query(query)
+Restarting apache2.
+Sourcing the admin credentials.
+Waiting for keystone to come up.
+Performing status check.
++----------------------------------+
+| Upgrade Check Results            |
++----------------------------------+
+| Check: Missing Root Provider IDs |
+| Result: Success                  |
+| Details: None                    |
++----------------------------------+
+| Check: Incomplete Consumers      |
+| Result: Success                  |
+| Details: None                    |
++----------------------------------+
+Installing python3-pip.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  dh-python libexpat1-dev libpython3-dev libpython3.6-dev python-pip-whl
+  python3-dev python3-wheel python3-xdg python3.6-dev
+The following NEW packages will be installed:
+  dh-python libexpat1-dev libpython3-dev libpython3.6-dev python-pip-whl
+  python3-dev python3-pip python3-wheel python3-xdg python3.6-dev
+0 upgraded, 10 newly installed, 0 to remove and 0 not upgraded.
+Need to get 45.7 MB/47.4 MB of archives.
+After this operation, 81.0 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython3.6-dev amd64 3.6.9-1~18.04ubuntu1.4 [44.9 MB]
+Get:2 http://ubuntu-cloud.archive.canonical.com/ubuntu bionic-updates/train/main amd64 dh-python all 4.20190722ubuntu1~cloud0 [99.7 kB]
+Get:3 http://ubuntu-cloud.archive.canonical.com/ubuntu bionic-updates/train/main amd64 python3-wheel all 0.32.3-2~cloud0 [19.5 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython3-dev amd64 3.6.7-1~18.04 [7,328 B]
+Get:5 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3.6-dev amd64 3.6.9-1~18.04ubuntu1.4 [508 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3-dev amd64 3.6.7-1~18.04 [1,288 B]
+Get:7 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 python3-pip all 9.0.1-2.3~ubuntu1.18.04.4 [114 kB]
+Get:8 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3-xdg all 0.25-4ubuntu1.1 [31.3 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 45.7 MB in 2min 9s (355 kB/s)
+Selecting previously unselected package dh-python.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 142841 files and directories currently installed.)
+Preparing to unpack .../0-dh-python_4.20190722ubuntu1~cloud0_all.deb ...
+Unpacking dh-python (4.20190722ubuntu1~cloud0) ...
+Selecting previously unselected package libexpat1-dev:amd64.
+Preparing to unpack .../1-libexpat1-dev_2.2.5-3ubuntu0.2_amd64.deb ...
+Unpacking libexpat1-dev:amd64 (2.2.5-3ubuntu0.2) ...
+Selecting previously unselected package libpython3.6-dev:amd64.
+Preparing to unpack .../2-libpython3.6-dev_3.6.9-1~18.04ubuntu1.4_amd64.deb ...
+Unpacking libpython3.6-dev:amd64 (3.6.9-1~18.04ubuntu1.4) ...
+Selecting previously unselected package libpython3-dev:amd64.
+Preparing to unpack .../3-libpython3-dev_3.6.7-1~18.04_amd64.deb ...
+Unpacking libpython3-dev:amd64 (3.6.7-1~18.04) ...
+Selecting previously unselected package python-pip-whl.
+Preparing to unpack .../4-python-pip-whl_9.0.1-2.3~ubuntu1.18.04.4_all.deb ...
+Unpacking python-pip-whl (9.0.1-2.3~ubuntu1.18.04.4) ...
+Selecting previously unselected package python3.6-dev.
+Preparing to unpack .../5-python3.6-dev_3.6.9-1~18.04ubuntu1.4_amd64.deb ...
+Unpacking python3.6-dev (3.6.9-1~18.04ubuntu1.4) ...
+Selecting previously unselected package python3-dev.
+Preparing to unpack .../6-python3-dev_3.6.7-1~18.04_amd64.deb ...
+Unpacking python3-dev (3.6.7-1~18.04) ...
+Selecting previously unselected package python3-pip.
+Preparing to unpack .../7-python3-pip_9.0.1-2.3~ubuntu1.18.04.4_all.deb ...
+Unpacking python3-pip (9.0.1-2.3~ubuntu1.18.04.4) ...
+Selecting previously unselected package python3-wheel.
+Preparing to unpack .../8-python3-wheel_0.32.3-2~cloud0_all.deb ...
+Unpacking python3-wheel (0.32.3-2~cloud0) ...
+Selecting previously unselected package python3-xdg.
+Preparing to unpack .../9-python3-xdg_0.25-4ubuntu1.1_all.deb ...
+Unpacking python3-xdg (0.25-4ubuntu1.1) ...
+Setting up python-pip-whl (9.0.1-2.3~ubuntu1.18.04.4) ...
+Setting up python3-xdg (0.25-4ubuntu1.1) ...
+Setting up python3-wheel (0.32.3-2~cloud0) ...
+Setting up python3-pip (9.0.1-2.3~ubuntu1.18.04.4) ...
+Setting up libexpat1-dev:amd64 (2.2.5-3ubuntu0.2) ...
+Setting up dh-python (4.20190722ubuntu1~cloud0) ...
+Setting up libpython3.6-dev:amd64 (3.6.9-1~18.04ubuntu1.4) ...
+Setting up python3.6-dev (3.6.9-1~18.04ubuntu1.4) ...
+Setting up libpython3-dev:amd64 (3.6.7-1~18.04) ...
+Setting up python3-dev (3.6.7-1~18.04) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Installing the placement client.
+The directory '/home/osbash/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/osbash/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting osc-placement
+  Downloading https://files.pythonhosted.org/packages/40/a2/fa07d9f9c4022d918cec663b1e3f55d1ed40d400a080ad5b7ae1a0241785/osc_placement-2.2.0-py3-none-any.whl (57kB)
+Requirement already satisfied: osc-lib>=1.2.0 in /usr/lib/python3/dist-packages (from osc-placement)
+Requirement already satisfied: oslo.utils>=3.37.0 in /usr/lib/python3/dist-packages (from osc-placement)
+Requirement already satisfied: pbr>=2.0.0 in /usr/lib/python3/dist-packages (from osc-placement)
+Requirement already satisfied: keystoneauth1>=3.3.0 in /usr/lib/python3/dist-packages (from osc-placement)
+Requirement already satisfied: six>=1.10.0 in /usr/lib/python3/dist-packages (from osc-placement)
+Collecting simplejson>=3.16.0 (from osc-placement)
+  Downloading https://files.pythonhosted.org/packages/c4/76/6c18cafdd84cb87ea737ec52965dc1d8730f0d8e8d019c1efaf0b58abb32/simplejson-3.17.2-cp36-cp36m-manylinux1_x86_64.whl (127kB)
+Installing collected packages: simplejson, osc-placement
+  Found existing installation: simplejson 3.13.2
+    Not uninstalling simplejson at /usr/lib/python3/dist-packages, outside environment /usr
+Successfully installed osc-placement-2.2.0 simplejson-3.17.2
+Listing available resource classes and traits.
++----------------------------+
+| name                       |
++----------------------------+
+| DISK_GB                    |
+| FPGA                       |
+| IPV4_ADDRESS               |
+| MEMORY_MB                  |
+| MEM_ENCRYPTION_CONTEXT     |
+| NET_BW_EGR_KILOBIT_PER_SEC |
+| NET_BW_IGR_KILOBIT_PER_SEC |
+| NUMA_CORE                  |
+| NUMA_MEMORY_MB             |
+| NUMA_SOCKET                |
+| NUMA_THREAD                |
+| PCI_DEVICE                 |
+| PCPU                       |
+| PGPU                       |
+| SRIOV_NET_VF               |
+| VCPU                       |
+| VGPU                       |
+| VGPU_DISPLAY_HEAD          |
++----------------------------+
++---------------------------------------+
+| name                                  |
++---------------------------------------+
+| COMPUTE_DEVICE_TAGGING                |
+| COMPUTE_GRAPHICS_MODEL_CIRRUS         |
+| COMPUTE_GRAPHICS_MODEL_GOP            |
+| COMPUTE_GRAPHICS_MODEL_NONE           |
+| COMPUTE_GRAPHICS_MODEL_QXL            |
+| COMPUTE_GRAPHICS_MODEL_VGA            |
+| COMPUTE_GRAPHICS_MODEL_VIRTIO         |
+| COMPUTE_GRAPHICS_MODEL_VMVGA          |
+| COMPUTE_GRAPHICS_MODEL_XEN            |
+| COMPUTE_IMAGE_TYPE_AKI                |
+| COMPUTE_IMAGE_TYPE_AMI                |
+| COMPUTE_IMAGE_TYPE_ARI                |
+| COMPUTE_IMAGE_TYPE_ISO                |
+| COMPUTE_IMAGE_TYPE_QCOW2              |
+| COMPUTE_IMAGE_TYPE_RAW                |
+| COMPUTE_IMAGE_TYPE_VDI                |
+| COMPUTE_IMAGE_TYPE_VHD                |
+| COMPUTE_IMAGE_TYPE_VHDX               |
+| COMPUTE_IMAGE_TYPE_VMDK               |
+| COMPUTE_MIGRATE_AUTO_CONVERGE         |
+| COMPUTE_MIGRATE_POST_COPY             |
+| COMPUTE_NET_ATTACH_INTERFACE          |
+| COMPUTE_NET_ATTACH_INTERFACE_WITH_TAG |
+| COMPUTE_NET_VIF_MODEL_E1000           |
+| COMPUTE_NET_VIF_MODEL_E1000E          |
+| COMPUTE_NET_VIF_MODEL_LAN9118         |
+| COMPUTE_NET_VIF_MODEL_NE2K_PCI        |
+| COMPUTE_NET_VIF_MODEL_NETFRONT        |
+| COMPUTE_NET_VIF_MODEL_PCNET           |
+| COMPUTE_NET_VIF_MODEL_RTL8139         |
+| COMPUTE_NET_VIF_MODEL_SPAPR_VLAN      |
+| COMPUTE_NET_VIF_MODEL_SRIOV           |
+| COMPUTE_NET_VIF_MODEL_VIRTIO          |
+| COMPUTE_NET_VIF_MODEL_VMXNET          |
+| COMPUTE_NET_VIF_MODEL_VMXNET3         |
+| COMPUTE_SECURITY_TPM_1_2              |
+| COMPUTE_SECURITY_TPM_2_0              |
+| COMPUTE_STATUS_DISABLED               |
+| COMPUTE_STORAGE_BUS_FDC               |
+| COMPUTE_STORAGE_BUS_IDE               |
+| COMPUTE_STORAGE_BUS_LXC               |
+| COMPUTE_STORAGE_BUS_SATA              |
+| COMPUTE_STORAGE_BUS_SCSI              |
+| COMPUTE_STORAGE_BUS_UML               |
+| COMPUTE_STORAGE_BUS_USB               |
+| COMPUTE_STORAGE_BUS_VIRTIO            |
+| COMPUTE_STORAGE_BUS_XEN               |
+| COMPUTE_TRUSTED_CERTS                 |
+| COMPUTE_VOLUME_ATTACH                 |
+| COMPUTE_VOLUME_ATTACH_WITH_TAG        |
+| COMPUTE_VOLUME_EXTEND                 |
+| COMPUTE_VOLUME_MULTI_ATTACH           |
+| HW_CPU_AARCH64_AES                    |
+| HW_CPU_AARCH64_ASIMD                  |
+| HW_CPU_AARCH64_ASIMDDP                |
+| HW_CPU_AARCH64_ASIMDHP                |
+| HW_CPU_AARCH64_ASIMDRDM               |
+| HW_CPU_AARCH64_ATOMICS                |
+| HW_CPU_AARCH64_CPUID                  |
+| HW_CPU_AARCH64_CRC32                  |
+| HW_CPU_AARCH64_DCPOP                  |
+| HW_CPU_AARCH64_EVTSTRM                |
+| HW_CPU_AARCH64_FCMA                   |
+| HW_CPU_AARCH64_FP                     |
+| HW_CPU_AARCH64_FPHP                   |
+| HW_CPU_AARCH64_JSCVT                  |
+| HW_CPU_AARCH64_LRCPC                  |
+| HW_CPU_AARCH64_PMULL                  |
+| HW_CPU_AARCH64_SHA1                   |
+| HW_CPU_AARCH64_SHA2                   |
+| HW_CPU_AARCH64_SHA3                   |
+| HW_CPU_AARCH64_SHA512                 |
+| HW_CPU_AARCH64_SM3                    |
+| HW_CPU_AARCH64_SM4                    |
+| HW_CPU_AARCH64_SVE                    |
+| HW_CPU_AMD_SEV                        |
+| HW_CPU_HYPERTHREADING                 |
+| HW_CPU_X86_3DNOW                      |
+| HW_CPU_X86_ABM                        |
+| HW_CPU_X86_AESNI                      |
+| HW_CPU_X86_AMD_IBPB                   |
+| HW_CPU_X86_AMD_NO_SSB                 |
+| HW_CPU_X86_AMD_SEV                    |
+| HW_CPU_X86_AMD_SSBD                   |
+| HW_CPU_X86_AMD_SVM                    |
+| HW_CPU_X86_AMD_VIRT_SSBD              |
+| HW_CPU_X86_ASF                        |
+| HW_CPU_X86_AVX                        |
+| HW_CPU_X86_AVX2                       |
+| HW_CPU_X86_AVX512BW                   |
+| HW_CPU_X86_AVX512CD                   |
+| HW_CPU_X86_AVX512DQ                   |
+| HW_CPU_X86_AVX512ER                   |
+| HW_CPU_X86_AVX512F                    |
+| HW_CPU_X86_AVX512PF                   |
+| HW_CPU_X86_AVX512VL                   |
+| HW_CPU_X86_AVX512VNNI                 |
+| HW_CPU_X86_BMI                        |
+| HW_CPU_X86_BMI2                       |
+| HW_CPU_X86_CLMUL                      |
+| HW_CPU_X86_F16C                       |
+| HW_CPU_X86_FMA3                       |
+| HW_CPU_X86_FMA4                       |
+| HW_CPU_X86_INTEL_MD_CLEAR             |
+| HW_CPU_X86_INTEL_PCID                 |
+| HW_CPU_X86_INTEL_SPEC_CTRL            |
+| HW_CPU_X86_INTEL_SSBD                 |
+| HW_CPU_X86_INTEL_VMX                  |
+| HW_CPU_X86_MMX                        |
+| HW_CPU_X86_MPX                        |
+| HW_CPU_X86_PDPE1GB                    |
+| HW_CPU_X86_SGX                        |
+| HW_CPU_X86_SHA                        |
+| HW_CPU_X86_SSE                        |
+| HW_CPU_X86_SSE2                       |
+| HW_CPU_X86_SSE3                       |
+| HW_CPU_X86_SSE41                      |
+| HW_CPU_X86_SSE42                      |
+| HW_CPU_X86_SSE4A                      |
+| HW_CPU_X86_SSSE3                      |
+| HW_CPU_X86_STIBP                      |
+| HW_CPU_X86_SVM                        |
+| HW_CPU_X86_TBM                        |
+| HW_CPU_X86_TSX                        |
+| HW_CPU_X86_VMX                        |
+| HW_CPU_X86_XOP                        |
+| HW_GPU_API_DIRECT2D                   |
+| HW_GPU_API_DIRECT3D_V10_0             |
+| HW_GPU_API_DIRECT3D_V10_1             |
+| HW_GPU_API_DIRECT3D_V11_0             |
+| HW_GPU_API_DIRECT3D_V11_1             |
+| HW_GPU_API_DIRECT3D_V11_2             |
+| HW_GPU_API_DIRECT3D_V11_3             |
+| HW_GPU_API_DIRECT3D_V12_0             |
+| HW_GPU_API_DIRECT3D_V6_0              |
+| HW_GPU_API_DIRECT3D_V7_0              |
+| HW_GPU_API_DIRECT3D_V8_0              |
+| HW_GPU_API_DIRECT3D_V8_1              |
+| HW_GPU_API_DIRECT3D_V9_0              |
+| HW_GPU_API_DIRECT3D_V9_0B             |
+| HW_GPU_API_DIRECT3D_V9_0C             |
+| HW_GPU_API_DIRECT3D_V9_0L             |
+| HW_GPU_API_DIRECTX_V10                |
+| HW_GPU_API_DIRECTX_V11                |
+| HW_GPU_API_DIRECTX_V12                |
+| HW_GPU_API_DXVA                       |
+| HW_GPU_API_OPENCL_V1_0                |
+| HW_GPU_API_OPENCL_V1_1                |
+| HW_GPU_API_OPENCL_V1_2                |
+| HW_GPU_API_OPENCL_V2_0                |
+| HW_GPU_API_OPENCL_V2_1                |
+| HW_GPU_API_OPENCL_V2_2                |
+| HW_GPU_API_OPENGL_V1_1                |
+| HW_GPU_API_OPENGL_V1_2                |
+| HW_GPU_API_OPENGL_V1_3                |
+| HW_GPU_API_OPENGL_V1_4                |
+| HW_GPU_API_OPENGL_V1_5                |
+| HW_GPU_API_OPENGL_V2_0                |
+| HW_GPU_API_OPENGL_V2_1                |
+| HW_GPU_API_OPENGL_V3_0                |
+| HW_GPU_API_OPENGL_V3_1                |
+| HW_GPU_API_OPENGL_V3_2                |
+| HW_GPU_API_OPENGL_V3_3                |
+| HW_GPU_API_OPENGL_V4_0                |
+| HW_GPU_API_OPENGL_V4_1                |
+| HW_GPU_API_OPENGL_V4_2                |
+| HW_GPU_API_OPENGL_V4_3                |
+| HW_GPU_API_OPENGL_V4_4                |
+| HW_GPU_API_OPENGL_V4_5                |
+| HW_GPU_API_VULKAN                     |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V1_0   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V1_1   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V1_2   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V1_3   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V2_0   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V2_1   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V3_0   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V3_2   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V3_5   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V3_7   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V5_0   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V5_2   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V5_3   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V6_0   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V6_1   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V6_2   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V7_0   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V7_1   |
+| HW_GPU_CUDA_COMPUTE_CAPABILITY_V7_2   |
+| HW_GPU_CUDA_SDK_V10_0                 |
+| HW_GPU_CUDA_SDK_V6_5                  |
+| HW_GPU_CUDA_SDK_V7_5                  |
+| HW_GPU_CUDA_SDK_V8_0                  |
+| HW_GPU_CUDA_SDK_V9_0                  |
+| HW_GPU_CUDA_SDK_V9_1                  |
+| HW_GPU_CUDA_SDK_V9_2                  |
+| HW_GPU_MAX_DISPLAY_HEADS_1            |
+| HW_GPU_MAX_DISPLAY_HEADS_2            |
+| HW_GPU_MAX_DISPLAY_HEADS_4            |
+| HW_GPU_MAX_DISPLAY_HEADS_6            |
+| HW_GPU_MAX_DISPLAY_HEADS_8            |
+| HW_GPU_RESOLUTION_W1024H600           |
+| HW_GPU_RESOLUTION_W1024H768           |
+| HW_GPU_RESOLUTION_W1152H864           |
+| HW_GPU_RESOLUTION_W1280H1024          |
+| HW_GPU_RESOLUTION_W1280H720           |
+| HW_GPU_RESOLUTION_W1280H768           |
+| HW_GPU_RESOLUTION_W1280H800           |
+| HW_GPU_RESOLUTION_W1360H768           |
+| HW_GPU_RESOLUTION_W1366H768           |
+| HW_GPU_RESOLUTION_W1440H900           |
+| HW_GPU_RESOLUTION_W1600H1200          |
+| HW_GPU_RESOLUTION_W1600H900           |
+| HW_GPU_RESOLUTION_W1680H1050          |
+| HW_GPU_RESOLUTION_W1920H1080          |
+| HW_GPU_RESOLUTION_W1920H1200          |
+| HW_GPU_RESOLUTION_W2560H1440          |
+| HW_GPU_RESOLUTION_W2560H1600          |
+| HW_GPU_RESOLUTION_W320H240            |
+| HW_GPU_RESOLUTION_W3840H2160          |
+| HW_GPU_RESOLUTION_W640H480            |
+| HW_GPU_RESOLUTION_W7680H4320          |
+| HW_GPU_RESOLUTION_W800H600            |
+| HW_NIC_ACCEL_DEFLATE                  |
+| HW_NIC_ACCEL_DIFFIEH                  |
+| HW_NIC_ACCEL_ECC                      |
+| HW_NIC_ACCEL_IPSEC                    |
+| HW_NIC_ACCEL_LZS                      |
+| HW_NIC_ACCEL_RSA                      |
+| HW_NIC_ACCEL_SSL                      |
+| HW_NIC_ACCEL_TLS                      |
+| HW_NIC_DCB_ETS                        |
+| HW_NIC_DCB_PFC                        |
+| HW_NIC_DCB_QCN                        |
+| HW_NIC_MULTIQUEUE                     |
+| HW_NIC_OFFLOAD_FDF                    |
+| HW_NIC_OFFLOAD_GENEVE                 |
+| HW_NIC_OFFLOAD_GRE                    |
+| HW_NIC_OFFLOAD_GRO                    |
+| HW_NIC_OFFLOAD_GSO                    |
+| HW_NIC_OFFLOAD_L2CRC                  |
+| HW_NIC_OFFLOAD_LRO                    |
+| HW_NIC_OFFLOAD_LSO                    |
+| HW_NIC_OFFLOAD_QINQ                   |
+| HW_NIC_OFFLOAD_RDMA                   |
+| HW_NIC_OFFLOAD_RX                     |
+| HW_NIC_OFFLOAD_RXHASH                 |
+| HW_NIC_OFFLOAD_RXVLAN                 |
+| HW_NIC_OFFLOAD_SCS                    |
+| HW_NIC_OFFLOAD_SG                     |
+| HW_NIC_OFFLOAD_SWITCHDEV              |
+| HW_NIC_OFFLOAD_TCS                    |
+| HW_NIC_OFFLOAD_TSO                    |
+| HW_NIC_OFFLOAD_TX                     |
+| HW_NIC_OFFLOAD_TXUDP                  |
+| HW_NIC_OFFLOAD_TXVLAN                 |
+| HW_NIC_OFFLOAD_UCS                    |
+| HW_NIC_OFFLOAD_UFO                    |
+| HW_NIC_OFFLOAD_VXLAN                  |
+| HW_NIC_PROGRAMMABLE_PIPELINE          |
+| HW_NIC_SRIOV                          |
+| HW_NIC_SRIOV_MULTIQUEUE               |
+| HW_NIC_SRIOV_QOS_RX                   |
+| HW_NIC_SRIOV_QOS_TX                   |
+| HW_NIC_SRIOV_TRUSTED                  |
+| HW_NIC_VMDQ                           |
+| HW_NUMA_ROOT                          |
+| MISC_SHARES_VIA_AGGREGATE             |
+| STORAGE_DISK_HDD                      |
+| STORAGE_DISK_SSD                      |
++---------------------------------------+
